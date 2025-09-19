@@ -1,0 +1,174 @@
+'use client';
+
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+
+export default function Header() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="relative w-full h-screen overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/lhcgif.gif"
+            alt="Background"
+            fill
+            className="object-cover"
+            priority
+            unoptimized
+          />
+          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+        </div>
+        <div className="relative z-10 flex items-center justify-center h-full">
+          <div className="text-white text-center">
+            <div className="text-4xl font-bold mb-4">DEMOLIDORA LHC</div>
+            <div className="text-xl">Carregando...</div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative w-full h-screen overflow-hidden">
+      {/* Vídeo de fundo */}
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/lhcgif.gif"
+          alt="Background"
+          fill
+          className="object-cover"
+          priority
+          unoptimized
+        />
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      </div>
+
+      {/* Header com navegação */}
+      <motion.header 
+        className="relative z-10 flex items-center justify-center px-6 py-4"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        {/* Menu esquerdo */}
+        <motion.nav 
+          className="flex space-x-4 mr-8"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <motion.a 
+            href="#servicos" 
+            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-xl px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Serviços
+          </motion.a>
+          <motion.a 
+            href="#sobre" 
+            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-xl px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Sobre
+          </motion.a>
+        </motion.nav>
+
+        {/* Logo centralizado */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="flex-shrink-0"
+        >
+          <Image
+            src="/logo.png"
+            alt="Demolidora LHC"
+            width={250}
+            height={250}
+            className="drop-shadow-2xl"
+          />
+        </motion.div>
+
+        {/* Menu direito */}
+        <motion.nav 
+          className="flex space-x-4 ml-8"
+          initial={{ opacity: 0, x: 50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <motion.a 
+            href="#contato" 
+            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-xl px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Contato
+          </motion.a>
+          <motion.a 
+            href="#orcamento" 
+            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-xl px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Orçamento
+          </motion.a>
+        </motion.nav>
+      </motion.header>
+
+      {/* Hero Banner */}
+      <motion.div 
+        className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center -mt-20"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.6 }}
+      >
+        <motion.h1 
+          className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-5xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 0.8 }}
+        >
+          <span className="block text-gold-400 drop-shadow-2xl mb-2">
+            A DEMOLIÇÃO NÃO É O FIM,
+          </span>
+          <span className="block text-white drop-shadow-2xl">
+            É O PRIMEIRO PASSO PARA UM NOVO COMEÇO
+          </span>
+        </motion.h1>
+        
+        <motion.p 
+          className="text-lg md:text-xl text-gray-200 max-w-3xl leading-relaxed mb-8"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+        >
+          A DEMOLIDORA LHC ENTREGA MAIS DO QUE UM SERVIÇO, ENTREGA CONFIANÇA E QUALIDADE
+        </motion.p>
+
+        <motion.div
+          className="mt-6"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+        >
+          <motion.button 
+            className="bg-gold-500 hover:bg-gold-600 text-gray-900 font-bold py-4 px-10 rounded-xl text-xl transition-all duration-300 shadow-2xl border-2 border-gold-400 hover:border-gold-300"
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(212, 175, 55, 0.4)" }}
+            whileTap={{ scale: 0.95 }}
+          >
+            SOLICITAR ORÇAMENTO
+          </motion.button>
+        </motion.div>
+      </motion.div>
+    </div>
+  );
+}
