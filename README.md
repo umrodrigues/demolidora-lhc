@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Demolidora LHC
 
-## Getting Started
+Website institucional da Demolidora LHC - empresa especializada em demolições, escavações e terraplanagem.
 
-First, run the development server:
+## 🚀 Tecnologias
+
+- **Next.js 15** - Framework React
+- **TypeScript** - Tipagem estática
+- **Tailwind CSS** - Estilização
+- **Framer Motion** - Animações
+- **React Hook Form** - Gerenciamento de formulários
+
+## 📦 Instalação
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
+# Instalar dependências
+pnpm install
+
+# Executar em desenvolvimento
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Acesse [http://localhost:3000](http://localhost:3000) para visualizar.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🏗️ Estrutura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── app/
+│   ├── globals.css
+│   └── page.tsx
+└── components/
+    ├── Header.tsx
+    ├── ServicesSection.tsx
+    ├── WhyChooseSection.tsx
+    ├── ContactForm.tsx
+    └── Footer.tsx
+```
 
-## Learn More
+## 🎨 Design
 
-To learn more about Next.js, take a look at the following resources:
+- **Cores:** Dourado (#D4AF37) e cinza
+- **Responsivo:** Mobile-first
+- **Animações:** Framer Motion
+- **Formulário:** Validação com React Hook Form
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📱 Seções
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Header** - Navegação e hero banner
+- **Serviços** - Demolições, escavações e terraplanagem
+- **Por que escolher** - Diferenciais da empresa
+- **Contato** - Formulário de orçamento
+- **Footer** - Informações de contato
 
-## Deploy on Vercel
+## 🚀 Deploy
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Build para produção
+pnpm build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Executar produção
+pnpm start
+```
