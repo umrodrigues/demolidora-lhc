@@ -16,12 +16,11 @@ export default function Header() {
       <div className="relative w-full h-screen overflow-hidden">
         <div className="absolute inset-0 z-0">
           <Image
-            src="/lhcgif.gif"
+            src="/background.jpg"
             alt="Background"
             fill
             className="object-cover"
             priority
-            unoptimized
           />
           <div className="absolute inset-0 bg-black bg-opacity-40"></div>
         </div>
@@ -40,12 +39,11 @@ export default function Header() {
       {/* Vídeo de fundo */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/lhcgif.gif"
+          src="/background.jpg"
           alt="Background"
           fill
           className="object-cover"
           priority
-          unoptimized
         />
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       </div>
