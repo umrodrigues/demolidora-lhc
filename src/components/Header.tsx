@@ -57,7 +57,6 @@ export default function Header() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        {/* Menu esquerdo */}
         <motion.nav 
           className="flex space-x-4 mr-8"
           initial={{ opacity: 0, x: -50 }}
@@ -82,7 +81,6 @@ export default function Header() {
           </motion.a>
         </motion.nav>
 
-        {/* Logo centralizado */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -98,7 +96,6 @@ export default function Header() {
           />
         </motion.div>
 
-        {/* Menu direito */}
         <motion.nav 
           className="flex space-x-4 ml-8"
           initial={{ opacity: 0, x: 50 }}
@@ -124,7 +121,6 @@ export default function Header() {
         </motion.nav>
       </motion.header>
 
-      {/* Hero Banner */}
       <motion.div 
         className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center -mt-20"
         initial={{ opacity: 0, y: 50 }}
