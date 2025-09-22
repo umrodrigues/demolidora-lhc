@@ -38,7 +38,6 @@ export default function Header() {
 
   return (
     <div className="relative w-full h-screen overflow-hidden">
-      {/* Vídeo de fundo */}
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -52,7 +51,6 @@ export default function Header() {
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       </div>
 
-      {/* Header com navegação */}
       <motion.header 
         className="relative z-10 flex items-center justify-center px-6 py-4"
         initial={{ opacity: 0, y: -50 }}

@@ -1,0 +1,5 @@
+---
+description:"Nunca comentar código, layouts responsivos"
+globs:
+alwaysApply: true
+---
