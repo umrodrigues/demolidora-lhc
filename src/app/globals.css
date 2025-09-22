@@ -16,3 +16,65 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+/* Classes globais para estilos repetidos */
+@layer components {
+  /* Botões */
+  .btn-primary {
+    @apply bg-gold-500 hover:bg-gold-600 text-gray-900 font-bold py-4 px-10 rounded-xl transition-all duration-300 shadow-2xl border-2 border-gold-400 hover:border-gold-300;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-gold-600 font-bold py-3 px-8 rounded-xl hover:bg-gray-100 transition-colors duration-300 shadow-lg;
+  }
+  
+  .btn-small {
+    @apply bg-gold-500 hover:bg-gold-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition-colors duration-300 text-sm;
+  }
+  
+  /* Títulos */
+  .title-main {
+    @apply text-4xl md:text-5xl font-bold text-gray-700 mb-6;
+  }
+  
+  .title-section {
+    @apply text-2xl font-bold text-gray-700 mb-4;
+  }
+  
+  /* Cards */
+  .card {
+    @apply bg-white rounded-2xl shadow-xl;
+  }
+  
+  .card-hover {
+    @apply bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2;
+  }
+  
+  /* Inputs */
+  .input-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-colors;
+  }
+  
+  /* Gradientes */
+  .gradient-gold {
+    @apply bg-gradient-to-r from-gold-500 to-gold-600;
+  }
+  
+  /* Seções */
+  .section-padding {
+    @apply py-20;
+  }
+  
+  .section-bg {
+    @apply bg-gray-50;
+  }
+  
+  /* Container */
+  .container-main {
+    @apply max-w-7xl mx-auto px-4;
+  }
+  
+  .container-form {
+    @apply max-w-4xl mx-auto;
+  }
+}

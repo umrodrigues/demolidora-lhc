@@ -37,8 +37,8 @@ const features = [
 
 export default function WhyChooseSection() {
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="section-padding section-bg">
+      <div className="container-main">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function WhyChooseSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-700 mb-6">
+          <h2 className="title-main">
             Por que escolher a Demolidora LHC?
           </h2>
           <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
@@ -62,7 +62,7 @@ export default function WhyChooseSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300"
+              className="card p-8 text-center hover:shadow-xl transition-shadow duration-300"
             >
               <motion.div
                 whileHover={{ scale: 1.1, rotate: 5 }}

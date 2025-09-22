@@ -59,8 +59,8 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="servicos" className="py-20 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4">
+    <section id="servicos" className="section-padding section-bg">
+      <div className="container-main">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -68,7 +68,7 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-700 mb-6">
+          <h2 className="title-main">
             Nossos Serviços
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -86,7 +86,7 @@ export default function ServicesSection() {
               viewport={{ once: true }}
               className="group"
             >
-              <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="card-hover">
                 <div className="relative h-64 overflow-hidden">
                   <Image
                     src={service.image}
@@ -143,7 +143,7 @@ export default function ServicesSection() {
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full mt-8 bg-gradient-to-r from-gold-500 to-gold-600 text-white font-bold py-3 px-6 rounded-xl hover:from-gold-600 hover:to-gold-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="w-full mt-8 gradient-gold text-white font-bold py-3 px-6 rounded-xl hover:from-gold-600 hover:to-gold-700 transition-all duration-300 shadow-lg hover:shadow-xl"
                   >
                     Solicitar Orçamento
                   </motion.button>
@@ -160,7 +160,7 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="text-center mt-16"
         >
-          <div className="bg-gradient-to-r from-gold-500 to-gold-600 rounded-2xl p-8 text-white">
+          <div className="gradient-gold rounded-2xl p-8 text-white">
             <h3 className="text-2xl font-bold mb-4">
               Pronto para começar seu projeto?
             </h3>
@@ -170,7 +170,7 @@ export default function ServicesSection() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-white text-gold-600 font-bold py-3 px-8 rounded-xl hover:bg-gray-100 transition-colors duration-300 shadow-lg"
+              className="btn-secondary"
             >
               Fale Conosco
             </motion.button>

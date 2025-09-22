@@ -157,8 +157,8 @@ export default function Header() {
           transition={{ duration: 1, delay: 1.2 }}
         >
           <motion.button 
-            className="bg-gold-500 hover:bg-gold-600 text-gray-900 font-bold py-4 px-10 rounded-xl text-xl transition-all duration-300 shadow-2xl border-2 border-gold-400 hover:border-gold-300"
-            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(212, 175, 55, 0.4)" }}
+            className="btn-primary text-xl"
+            whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(241, 196, 15, 0.4)" }}
             whileTap={{ scale: 0.95 }}
           >
             SOLICITAR ORÇAMENTO

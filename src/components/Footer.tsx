@@ -46,7 +46,7 @@ export default function Footer() {
               href="#contato"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-gold-500 hover:bg-gold-600 text-gray-900 font-bold py-2 px-4 rounded-lg transition-colors duration-300 text-sm"
+              className="btn-small"
             >
               Orçamento
             </motion.a>

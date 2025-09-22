@@ -26,14 +26,14 @@ export default function ContactForm() {
 
   return (
     <div className="bg-white py-16 px-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="container-form">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold text-gray-700 mb-4">
+          <h2 className="title-section text-4xl">
             Solicite seu Orçamento
           </h2>
           <p className="text-lg text-gray-500">
@@ -46,7 +46,7 @@ export default function ContactForm() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-white rounded-2xl shadow-xl p-8"
+          className="card p-8"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <div>
@@ -62,7 +62,7 @@ export default function ContactForm() {
                 type="text"
                 {...register('nomeCompleto', { required: 'Nome completo é obrigatório' })}
                 placeholder="Seu nome completo"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-colors"
+                className="input-field"
               />
               {errors.nomeCompleto && (
                 <p className="text-red-500 text-sm mt-1">{errors.nomeCompleto.message}</p>
@@ -89,7 +89,7 @@ export default function ContactForm() {
                   }
                 })}
                 placeholder="seu@email.com"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-colors"
+                className="input-field"
               />
               {errors.email && (
                 <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
@@ -111,7 +111,7 @@ export default function ContactForm() {
                 type="tel"
                 {...register('telefone', { required: 'Telefone é obrigatório' })}
                 placeholder="(51) 99999-9999"
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-colors"
+                className="input-field"
               />
               {errors.telefone && (
                 <p className="text-red-500 text-sm mt-1">{errors.telefone.message}</p>
@@ -129,7 +129,7 @@ export default function ContactForm() {
               </label>
               <select
                 {...register('tipoServico', { required: 'Tipo de serviço é obrigatório' })}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-colors appearance-none bg-white"
+                className="input-field appearance-none bg-white"
               >
                 <option value="">Selecione um serviço</option>
                 <option value="demolicao">Demolição</option>
@@ -156,7 +156,7 @@ export default function ContactForm() {
               {...register('descricaoProjeto', { required: 'Descrição do projeto é obrigatória' })}
               placeholder="Descreva seu projeto, localização, dimensões e outras informações relevantes..."
               rows={4}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500 focus:border-gold-500 transition-colors resize-none"
+              className="input-field resize-none"
             />
             {errors.descricaoProjeto && (
               <p className="text-red-500 text-sm mt-1">{errors.descricaoProjeto.message}</p>
