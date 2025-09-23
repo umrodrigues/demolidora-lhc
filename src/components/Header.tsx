@@ -52,7 +52,7 @@ export default function Header() {
       </div>
 
       <motion.header 
-        className="relative z-10 flex items-center justify-center px-6 py-4"
+        className="relative z-10 flex items-center justify-center px-6"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -90,8 +90,8 @@ export default function Header() {
           <Image
             src="/logo.png"
             alt="Demolidora LHC"
-            width={250}
-            height={250}
+            width={350}
+            height={150}
             className="drop-shadow-2xl"
           />
         </motion.div>
@@ -122,7 +122,8 @@ export default function Header() {
       </motion.header>
 
       <motion.div 
-        className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center -mt-20"
+        className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center "
+        style={{ marginTop: '-200px' }}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.6 }}
