@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white">
       <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -21,7 +21,7 @@ export default function Footer() {
               alt="Demolidora LHC"
               width={260}
               height={160}
-              className="flex-shrink-0"
+              className="flex-shrink-0 w-48 lg:w-60 h-auto"
             />
             <div>
               <h3 className="text-lg font-bold text-gold-400">Demolidora LHC</h3>
@@ -34,10 +34,10 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             viewport={{ once: true }}
-            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
+            className="flex flex-col lg:flex-row items-center gap-4 lg:gap-6"
           >
             {/* Menu de navegação */}
-            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+            <div className="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-4">
               <div className="flex items-center space-x-4">
                 <motion.a
                   href="/"

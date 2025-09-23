@@ -6,10 +6,15 @@ import { useEffect, useState } from 'react';
 
 export default function Header() {
   const [mounted, setMounted] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   if (!mounted) {
     return (
@@ -57,8 +62,9 @@ export default function Header() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
+        {/* Desktop Navigation - mantém layout original */}
         <motion.nav 
-          className="flex space-x-4 mr-2"
+          className="hidden lg:flex space-x-4 mr-2"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -98,19 +104,13 @@ export default function Header() {
               alt="Demolidora LHC"
               width={600}
               height={150}
-              className="drop-shadow-2xl"
-              style={{ 
-                objectFit: 'cover',
-                width: '500px !important',
-                height: '150px !important',
-                maxHeight: '150px !important',
-              }}
+              className="drop-shadow-2xl w-64 sm:w-80 md:w-96 lg:w-[500px] h-auto"
             />
           </motion.a>
         </motion.div>
 
         <motion.nav 
-          className="flex space-x-4 ml-2"
+          className="hidden lg:flex space-x-4 ml-2"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -132,7 +132,89 @@ export default function Header() {
             Orçamento
           </motion.a>
         </motion.nav>
+
+        {/* Mobile Menu Button */}
+        <motion.button
+          className="lg:hidden absolute top-4 right-4 text-white hover:text-gold-400 transition-colors duration-300 p-2 z-[100]"
+          onClick={toggleMenu}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        >
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </motion.button>
       </motion.header>
+
+      {/* Mobile Menu */}
+      <motion.div
+        className={`lg:hidden absolute top-0 left-0 right-0 z-[90] bg-black bg-opacity-95 backdrop-blur-sm ${
+          isMenuOpen ? 'block' : 'hidden'
+        }`}
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : -20 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Botão de fechar no menu */}
+        <div className="flex justify-end p-4">
+          <motion.button
+            onClick={() => setIsMenuOpen(false)}
+            className="text-white hover:text-gold-400 transition-colors duration-300 p-2"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </motion.button>
+        </div>
+        
+        <nav className="flex flex-col space-y-1 p-4 pt-0">
+          <motion.a 
+            href="/" 
+            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-lg px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 text-center"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Início
+          </motion.a>
+          <motion.a 
+            href="#servicos" 
+            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-lg px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 text-center"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Serviços
+          </motion.a>
+          <motion.a 
+            href="/contato" 
+            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-lg px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 text-center"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Contato
+          </motion.a>
+          <motion.a 
+            href="#contato" 
+            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-lg px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 text-center"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setIsMenuOpen(false)}
+          >
+            Orçamento
+          </motion.a>
+        </nav>
+      </motion.div>
 
       <motion.div 
         className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center pointer-events-none"
