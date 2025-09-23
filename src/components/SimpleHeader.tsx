@@ -25,10 +25,10 @@ export default function SimpleHeader() {
                 src="/logo.png"
                 alt="Demolidora LHC"
                 width={200}
-                height={60}
+                height={160}
                 className="drop-shadow-lg"
                 style={{ 
-                  objectFit: 'contain',
+                  objectFit: 'cover',
                   width: '200px',
                   height: '60px',
                 }}

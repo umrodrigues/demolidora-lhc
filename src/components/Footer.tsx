@@ -14,12 +14,13 @@ export default function Footer() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
             className="flex items-center space-x-4"
+            style={{ height: '160px' }}
           >
             <Image
               src="/logo.png"
               alt="Demolidora LHC"
-              width={60}
-              height={60}
+              width={260}
+              height={160}
               className="flex-shrink-0"
             />
             <div>
