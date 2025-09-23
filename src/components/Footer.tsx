@@ -108,8 +108,19 @@ export default function Footer() {
           viewport={{ once: true }}
           className="border-t border-gray-700 mt-6 pt-4 text-center"
         >
-          <p className="text-xs text-gray-400">
+          <p className="text-xs text-gray-400 mb-2">
             © 2024 Demolidora LHC. Todos os direitos reservados.
+          </p>
+          <p className="text-xs text-gray-400">
+            Desenvolvido por{' '}
+            <a 
+              href="https://www.lunaristech.com.br/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gold-400 hover:text-gold-300 transition-colors duration-300"
+            >
+              Lunaris Tech
+            </a>
           </p>
         </motion.div>
       </div>
