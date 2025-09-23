@@ -140,13 +140,14 @@ export default function ServicesSection() {
                     ))}
                   </div>
 
-                  <motion.button
+                  <motion.a
+                    href="#contato"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="w-full mt-8 gradient-gold text-white font-bold py-3 px-6 rounded-xl hover:from-gold-600 hover:to-gold-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                    className="w-full mt-8 gradient-gold text-white font-bold py-3 px-6 rounded-xl hover:from-gold-600 hover:to-gold-700 transition-all duration-300 shadow-lg hover:shadow-xl inline-block text-center"
                   >
                     Solicitar Orçamento
-                  </motion.button>
+                  </motion.a>
                 </div>
               </div>
             </motion.div>
@@ -167,13 +168,14 @@ export default function ServicesSection() {
             <p className="text-lg mb-6 opacity-90">
               Entre em contato conosco e receba um orçamento personalizado
             </p>
-            <motion.button
+            <motion.a
+              href="#contato"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="btn-secondary"
+              className="btn-secondary inline-block"
             >
               Fale Conosco
-            </motion.button>
+            </motion.a>
           </div>
         </motion.div>
       </div>

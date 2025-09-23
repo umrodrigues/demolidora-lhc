@@ -52,7 +52,7 @@ export default function Header() {
       </div>
 
       <motion.header 
-        className="relative z-10 flex items-center justify-center px-6 h-[300px]"
+        className="relative z-1000 flex items-center justify-center px-6 h-[300px]"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -72,7 +72,7 @@ export default function Header() {
             Serviços
           </motion.a>
           <motion.a 
-            href="#sobre" 
+            href="#servicos" 
             className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-xl px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -117,7 +117,7 @@ export default function Header() {
             Contato
           </motion.a>
           <motion.a 
-            href="#orcamento" 
+            href="#contato" 
             className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-xl px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -163,13 +163,14 @@ export default function Header() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
         >
-          <motion.button 
-            className="btn-primary text-xl"
+          <motion.a 
+            href="#contato"
+            className="btn-primary text-xl inline-block"
             whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(241, 196, 15, 0.4)" }}
             whileTap={{ scale: 0.95 }}
           >
             SOLICITAR ORÇAMENTO
-          </motion.button>
+          </motion.a>
         </motion.div>
       </motion.div>
     </div>
