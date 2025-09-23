@@ -1,5 +1,5 @@
 {
-  "buildCommand": "bash scripts/ensure-video.sh && pnpm run build",
+  "buildCommand": "pnpm run build",
   "installCommand": "git lfs install && pnpm install --no-frozen-lockfile",
   "functions": {
     "src/app/**/*.tsx": {
