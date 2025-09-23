@@ -1,5 +1,5 @@
 {
-  "buildCommand": "git lfs pull && pnpm run build",
+  "buildCommand": "bash scripts/ensure-video.sh && pnpm run build",
   "installCommand": "git lfs install && pnpm install --no-frozen-lockfile",
   "functions": {
     "src/app/**/*.tsx": {
@@ -10,5 +10,21 @@
     "env": {
       "NODE_VERSION": "18"
     }
-  }
+  },
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  },
+  "headers": [
+    {
+      "source": "/videolhc.mp4",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
 }

@@ -50,6 +50,8 @@ export default function Header() {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
+          preload="auto"
+          crossOrigin="anonymous"
         >
           <source src="/videolhc.mp4" type="video/mp4" />
         </video>
