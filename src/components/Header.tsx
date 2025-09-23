@@ -52,13 +52,13 @@ export default function Header() {
       </div>
 
       <motion.header 
-        className="relative z-10 flex items-center justify-center px-6"
+        className="relative z-10 flex items-center justify-center px-6 h-[300px]"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <motion.nav 
-          className="flex space-x-4 mr-8"
+          className="flex space-x-4 mr-2"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -85,19 +85,25 @@ export default function Header() {
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="flex-shrink-0"
+          className="flex-shrink-0 flex items-center justify-center"
         >
           <Image
             src="/logo.png"
             alt="Demolidora LHC"
-            width={350}
+            width={600}
             height={150}
             className="drop-shadow-2xl"
+            style={{ 
+              objectFit: 'cover',
+              width: '500px !important',
+              height: '150px !important',
+              maxHeight: '150px !important',
+            }}
           />
         </motion.div>
 
         <motion.nav 
-          className="flex space-x-4 ml-8"
+          className="flex space-x-4 ml-2"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -123,7 +129,7 @@ export default function Header() {
 
       <motion.div 
         className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center "
-        style={{ marginTop: '-200px' }}
+        style={{ marginTop: '-180px' }}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.6 }}
