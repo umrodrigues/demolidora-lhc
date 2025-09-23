@@ -35,6 +35,46 @@ export default function Footer() {
             viewport={{ once: true }}
             className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6"
           >
+            {/* Menu de navegação */}
+            <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
+              <div className="flex items-center space-x-4">
+                <motion.a
+                  href="/"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-sm text-gray-300 hover:text-gold-400 transition-colors duration-300"
+                >
+                  Início
+                </motion.a>
+                <motion.a
+                  href="/contato"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-sm text-gray-300 hover:text-gold-400 transition-colors duration-300"
+                >
+                  Contato
+                </motion.a>
+              </div>
+              <div className="flex items-center space-x-4">
+                <motion.a
+                  href="/politica-privacidade"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-sm text-gray-300 hover:text-gold-400 transition-colors duration-300"
+                >
+                  Política de Privacidade
+                </motion.a>
+                <motion.a
+                  href="/termos-uso"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-sm text-gray-300 hover:text-gold-400 transition-colors duration-300"
+                >
+                  Termos de Uso
+                </motion.a>
+              </div>
+            </div>
+
             <div className="flex items-center space-x-2">
               <svg className="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />

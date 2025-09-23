@@ -52,7 +52,7 @@ export default function Header() {
       </div>
 
       <motion.header 
-        className="relative z-1000 flex items-center justify-center px-6 h-[300px]"
+        className="relative z-50 flex items-center justify-center px-6 h-[300px]"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -64,12 +64,12 @@ export default function Header() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.a 
-            href="#servicos" 
+            href="/" 
             className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-xl px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Serviços
+            Início
           </motion.a>
           <motion.a 
             href="#servicos" 
@@ -77,7 +77,7 @@ export default function Header() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            Sobre
+            Serviços
           </motion.a>
         </motion.nav>
 
@@ -87,19 +87,26 @@ export default function Header() {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="flex-shrink-0 flex items-center justify-center"
         >
-          <Image
-            src="/logo.png"
-            alt="Demolidora LHC"
-            width={600}
-            height={150}
-            className="drop-shadow-2xl"
-            style={{ 
-              objectFit: 'cover',
-              width: '500px !important',
-              height: '150px !important',
-              maxHeight: '150px !important',
-            }}
-          />
+          <motion.a
+            href="/"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="cursor-pointer"
+          >
+            <Image
+              src="/logo.png"
+              alt="Demolidora LHC"
+              width={600}
+              height={150}
+              className="drop-shadow-2xl"
+              style={{ 
+                objectFit: 'cover',
+                width: '500px !important',
+                height: '150px !important',
+                maxHeight: '150px !important',
+              }}
+            />
+          </motion.a>
         </motion.div>
 
         <motion.nav 
@@ -109,7 +116,7 @@ export default function Header() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <motion.a 
-            href="#contato" 
+            href="/contato" 
             className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-xl px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -128,7 +135,7 @@ export default function Header() {
       </motion.header>
 
       <motion.div 
-        className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center "
+        className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center pointer-events-none"
         style={{ marginTop: '-180px' }}
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
@@ -165,7 +172,7 @@ export default function Header() {
         >
           <motion.a 
             href="#contato"
-            className="btn-primary text-xl inline-block"
+            className="btn-primary text-xl inline-block pointer-events-auto"
             whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(241, 196, 15, 0.4)" }}
             whileTap={{ scale: 0.95 }}
           >
