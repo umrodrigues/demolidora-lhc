@@ -1,0 +1,21 @@
+{
+  "name": "Demolidora LHC",
+  "short_name": "LHC",
+  "description": "A Demolidora LHC entrega mais do que um serviço, entrega confiança e qualidade. Especializada em demolição e construção.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1f2937",
+  "theme_color": "#f1c40f",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
