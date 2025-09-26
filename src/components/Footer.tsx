@@ -6,26 +6,27 @@ import { motion } from 'framer-motion';
 export default function Footer() {
   return (
     <footer className="bg-gray-800 text-white">
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div className="max-w-6xl mx-auto px-4 py-4 sm:py-8">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-4 sm:gap-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="flex items-center space-x-4"
-            style={{ height: '160px' }}
+            className="flex flex-col lg:flex-row items-center space-y-2 lg:space-y-0 lg:space-x-6"
           >
-            <Image
-              src="/logo.png"
-              alt="Demolidora LHC"
-              width={260}
-              height={160}
-              className="flex-shrink-0 w-48 lg:w-60 h-auto"
-            />
-            <div>
-              <h3 className="text-lg font-bold text-gold-400">Demolidora LHC</h3>
-              <p className="text-sm text-gray-300">Soluções em demolição e terraplanagem</p>
+            <div className="flex flex-col items-center lg:items-start">
+              <Image
+                src="/logo.png"
+                alt="Demolidora LHC"
+                width={400}
+                height={240}
+                className="sm:w-80 lg:w-96 h-60 object-cover"
+              />
+              <div className="text-center lg:text-left mt-2">
+                <h3 className="text-2xl sm:text-3xl font-bold text-gold-400 mb-2">DEMOLIDORA LHC</h3>
+                <p className="text-sm sm:text-base text-gray-300">Soluções em demolição e terraplanagem</p>
+              </div>
             </div>
           </motion.div>
 
@@ -106,7 +107,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="border-t border-gray-700 mt-6 pt-4 text-center"
+          className="border-t border-gray-700 mt-4 pt-3 text-center"
         >
           <p className="text-xs text-gray-400 mb-2">
             © 2024 Demolidora LHC. Todos os direitos reservados.
