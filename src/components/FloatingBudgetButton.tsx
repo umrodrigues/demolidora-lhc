@@ -9,47 +9,40 @@ export default function FloatingBudgetButton() {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    observerRef.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          setIsVisible(!entry.isIntersecting);
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '-50px 0px 0px 0px'
-      }
-    );
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 2000);
 
-    const headerElement = document.querySelector('[data-header-section]');
-    if (headerElement && observerRef.current) {
-      observerRef.current.observe(headerElement);
-    }
+    const handleScroll = () => {
+      const headerElement = document.querySelector('[data-header-section]');
+      if (headerElement) {
+        const rect = headerElement.getBoundingClientRect();
+        const isHeaderVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        setIsVisible(!isHeaderVisible);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
 
     return () => {
-      if (observerRef.current) {
-        observerRef.current.disconnect();
-      }
+      clearTimeout(timer);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   const scrollToContact = () => {
-    console.log('Botão clicado - tentando rolar para contato');
-    
     setTimeout(() => {
       const contactSection = document.querySelector('#contato') as HTMLElement;
-      console.log('Seção contato encontrada:', contactSection);
       
       if (contactSection) {
         const offsetTop = contactSection.offsetTop - 100;
-        console.log('Rolando para offset:', offsetTop);
         
         window.scrollTo({
           top: offsetTop,
           behavior: 'smooth'
         });
       } else {
-        console.log('Seção contato não encontrada, tentando novamente...');
         const retryContact = document.querySelector('#contato') as HTMLElement;
         if (retryContact) {
           const retryOffset = retryContact.offsetTop - 100;
