@@ -4,6 +4,7 @@ import WhyChooseSection from "@/components/WhyChooseSection";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingBudgetButton from "@/components/FloatingBudgetButton";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       </section>
       <Footer />
       <WhatsAppButton />
+      <FloatingBudgetButton />
     </div>
   );
 }

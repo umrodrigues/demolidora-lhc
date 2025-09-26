@@ -42,7 +42,7 @@ export default function Header() {
   }
 
   return (
-    <div className="relative w-full h-screen overflow-hidden">
+    <div className="relative w-full h-screen overflow-hidden" data-header-section>
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
