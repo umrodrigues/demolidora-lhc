@@ -225,28 +225,6 @@ export default function Header() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.6 }}
       >
-        <motion.h1 
-          className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight max-w-5xl"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          <span className="block text-gold-400 drop-shadow-2xl mb-2">
-            A DEMOLIÇÃO NÃO É O FIM,
-          </span>
-          <span className="block text-white drop-shadow-2xl">
-            É O PRIMEIRO PASSO PARA UM NOVO COMEÇO
-          </span>
-        </motion.h1>
-        
-        <motion.p 
-          className="text-lg md:text-xl text-gray-200 max-w-3xl leading-relaxed mb-8"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 1 }}
-        >
-          A DEMOLIDORA LHC ENTREGA MAIS DO QUE UM SERVIÇO, ENTREGA CONFIANÇA E QUALIDADE
-        </motion.p>
 
         <motion.div
           className="mt-6"
