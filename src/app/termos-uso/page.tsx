@@ -22,7 +22,7 @@ export default function TermosUsoPage() {
 
             <h2 className="text-2xl font-bold text-gray-700 mb-4">2. Sobre a Empresa</h2>
             <p className="text-gray-600 mb-6">
-              A Demolidora LHC é uma empresa especializada em serviços de demolição, escavação e terraplanagem, localizada em Porto Alegre, RS.
+              A Demolidora LHC é uma empresa especializada em serviços de demolição, escavação e terraplenagem, localizada em Porto Alegre, RS.
             </p>
 
             <h2 className="text-2xl font-bold text-gray-700 mb-4">3. Serviços Oferecidos</h2>
@@ -32,7 +32,7 @@ export default function TermosUsoPage() {
             <ul className="list-disc list-inside text-gray-600 mb-6 space-y-2">
               <li>Demolições controladas e seguras</li>
               <li>Escavações mecanizadas</li>
-              <li>Terraplanagem completa</li>
+              <li>Terraplenagem completa</li>
               <li>Remoção de entulhos</li>
               <li>Consultoria em projetos</li>
             </ul>

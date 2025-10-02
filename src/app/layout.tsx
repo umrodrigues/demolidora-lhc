@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Demolidora LHC - Demolição e Construção",
   description: "A Demolidora LHC entrega mais do que um serviço, entrega confiança e qualidade. Especializada em demolição e construção.",
-  keywords: "demolição, construção, terraplanagem, escavação, Porto Alegre, RS",
+  keywords: "demolição, construção, terraplenagem, escavação, Porto Alegre, RS",
   authors: [{ name: "Demolidora LHC" }],
   creator: "Demolidora LHC",
   publisher: "Demolidora LHC",
@@ -43,9 +43,9 @@ export const metadata: Metadata = {
     images: ["/logo.png"],
   },
   icons: {
-    icon: "/icon",
-    shortcut: "/icon",
-    apple: "/apple-icon",
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
   },
   manifest: "/manifest.json",
 };

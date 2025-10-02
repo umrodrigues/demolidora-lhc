@@ -39,9 +39,9 @@ const services = [
     )
   },
   {
-    id: 'terraplanagem',
-    title: 'Terraplanagem',
-    description: 'Terraplanagem completa para preparação de terrenos para construção.',
+    id: 'terraplenagem',
+    title: 'Terraplenagem',
+    description: 'Terraplenagem completa para preparação de terrenos para construção.',
     image: '/terraplanagem.jpg',
     characteristics: [
       'Nivelamento de terrenos',
@@ -72,7 +72,7 @@ export default function ServicesSection() {
             Nossos Serviços
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Soluções completas em demolição, escavação e terraplanagem com qualidade e segurança
+            Soluções completas em demolição, escavação e terraplenagem com qualidade e segurança
           </p>
         </motion.div>
 

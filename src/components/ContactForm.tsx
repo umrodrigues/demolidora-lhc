@@ -172,7 +172,7 @@ export default function ContactForm() {
                 <option value="">Selecione um serviço</option>
                 <option value="demolicao">Demolição</option>
                 <option value="escavacao">Escavação</option>
-                <option value="terraplanagem">Terraplanagem</option>
+                <option value="terraplenagem">Terraplenagem</option>
                 <option value="outros">Outros</option>
               </select>
               {errors.tipoServico && (

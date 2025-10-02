@@ -23,10 +23,6 @@ export default function Footer() {
                 height={240}
                 className="sm:w-80 lg:w-96 h-60 object-cover"
               />
-              <div className="text-center lg:text-left mt-2">
-                <h3 className="text-2xl sm:text-3xl font-bold text-gold-400 mb-2">DEMOLIDORA LHC</h3>
-                <p className="text-sm sm:text-base text-gray-300">Soluções em demolição e terraplanagem</p>
-              </div>
             </div>
           </motion.div>
 

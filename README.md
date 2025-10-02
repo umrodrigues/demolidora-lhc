@@ -1,6 +1,6 @@
 # Demolidora LHC
 
-Website institucional da Demolidora LHC - empresa especializada em demolições, escavações e terraplanagem.
+Website institucional da Demolidora LHC - empresa especializada em demolições, escavações e terraplenagem.
 
 ## 🚀 Tecnologias
 
@@ -47,7 +47,7 @@ src/
 ## 📱 Seções
 
 - **Header** - Navegação e hero banner
-- **Serviços** - Demolições, escavações e terraplanagem
+- **Serviços** - Demolições, escavações e terraplenagem
 - **Por que escolher** - Diferenciais da empresa
 - **Contato** - Formulário de orçamento
 - **Footer** - Informações de contato
