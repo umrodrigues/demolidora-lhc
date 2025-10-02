@@ -152,7 +152,7 @@ export default function Header() {
 
         {/* Mobile Menu Button */}
         <motion.button
-          className="lg:hidden absolute top-4 right-4 text-white hover:text-gold-400 transition-colors duration-300 p-2 z-[100]"
+          className="lg:hidden absolute top-8 left-4 text-white hover:text-gold-400 transition-colors duration-300 p-2 z-[100]"
           onClick={toggleMenu}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -170,68 +170,84 @@ export default function Header() {
         </motion.button>
       </motion.header>
 
-      {/* Mobile Menu */}
-      <motion.div
-        className={`lg:hidden absolute top-0 left-0 right-0 z-[90] bg-black bg-opacity-95 backdrop-blur-sm ${
-          isMenuOpen ? 'block' : 'hidden'
-        }`}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: isMenuOpen ? 1 : 0, y: isMenuOpen ? 0 : -20 }}
-        transition={{ duration: 0.3 }}
-      >
-        {/* Botão de fechar no menu */}
-        <div className="flex justify-end p-4">
-          <motion.button
-            onClick={() => setIsMenuOpen(false)}
-            className="text-white hover:text-gold-400 transition-colors duration-300 p-2"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            </svg>
-          </motion.button>
-        </div>
-        
-        <nav className="flex flex-col space-y-1 p-4 pt-0">
-          <motion.a 
-            href="/" 
-            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-lg px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 text-center"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Início
-          </motion.a>
-          <motion.a 
-            href="#servicos" 
-            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-lg px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 text-center"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Serviços
-          </motion.a>
-          <motion.a 
-            href="/contato" 
-            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-lg px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 text-center"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Contato
-          </motion.a>
-          <motion.a 
-            href="#contato" 
-            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-lg px-4 py-3 rounded-lg hover:bg-white hover:bg-opacity-10 text-center"
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            onClick={() => setIsMenuOpen(false)}
-          >
-            Orçamento
-          </motion.a>
-        </nav>
-      </motion.div>
+      {/* Mobile Menu - Full Screen */}
+      {isMenuOpen && (
+        <motion.div
+          className="lg:hidden fixed inset-0 w-full h-full z-[90] bg-white"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          {/* Botão de fechar */}
+          <div className="absolute top-6 right-6 z-[100]">
+            <motion.button
+              onClick={() => setIsMenuOpen(false)}
+              className="text-gray-800 hover:text-gold-400 transition-colors duration-300 p-3"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </motion.button>
+          </div>
+          
+          {/* Menu centralizado */}
+          <div className="flex flex-col justify-center items-center h-full px-8">
+            <nav className="flex flex-col space-y-6 w-full max-w-xs">
+              <motion.a 
+                href="/" 
+                className="text-gray-800 hover:text-white hover:bg-gold-400 transition-all duration-300 font-bold text-3xl py-4 px-6 rounded-xl text-center shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsMenuOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+              >
+                Início
+              </motion.a>
+              <motion.a 
+                href="#servicos" 
+                className="text-gray-800 hover:text-white hover:bg-gold-400 transition-all duration-300 font-bold text-3xl py-4 px-6 rounded-xl text-center shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsMenuOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                Serviços
+              </motion.a>
+              <motion.a 
+                href="/contato" 
+                className="text-gray-800 hover:text-white hover:bg-gold-400 transition-all duration-300 font-bold text-3xl py-4 px-6 rounded-xl text-center shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsMenuOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                Contato
+              </motion.a>
+              <motion.a 
+                href="#contato" 
+                className="bg-gold-400 text-white hover:bg-gold-500 transition-all duration-300 font-bold text-3xl py-4 px-6 rounded-xl text-center shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsMenuOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                Orçamento
+              </motion.a>
+            </nav>
+          </div>
+        </motion.div>
+      )}
 
       <motion.div 
         className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center pointer-events-none"
