@@ -45,6 +45,14 @@ export default function Footer() {
                   Início
                 </motion.a>
                 <motion.a
+                  href="/quem-somos"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="text-sm text-gray-300 hover:text-gold-400 transition-colors duration-300"
+                >
+                  Quem Somos
+                </motion.a>
+                <motion.a
                   href="/contato"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}

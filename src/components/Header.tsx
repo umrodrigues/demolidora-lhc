@@ -163,6 +163,14 @@ export default function Header() {
           >
             Serviços
           </motion.a>
+          <motion.a 
+            href="/quem-somos" 
+            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-xl px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Quem Somos
+          </motion.a>
         </motion.nav>
 
         <motion.div
@@ -282,7 +290,7 @@ export default function Header() {
                 Serviços
               </motion.a>
               <motion.a 
-                href="/contato" 
+                href="/quem-somos" 
                 className="text-gray-800 hover:text-white hover:bg-gold-400 transition-all duration-300 font-bold text-3xl py-4 px-6 rounded-xl text-center shadow-lg hover:shadow-xl"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
@@ -290,6 +298,18 @@ export default function Header() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
+              >
+                Quem Somos
+              </motion.a>
+              <motion.a 
+                href="/contato" 
+                className="text-gray-800 hover:text-white hover:bg-gold-400 transition-all duration-300 font-bold text-3xl py-4 px-6 rounded-xl text-center shadow-lg hover:shadow-xl"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setIsMenuOpen(false)}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
               >
                 Contato
               </motion.a>
@@ -301,7 +321,7 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.5 }}
               >
                 Orçamento
               </motion.a>
