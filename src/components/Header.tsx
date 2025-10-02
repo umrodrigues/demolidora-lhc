@@ -7,9 +7,18 @@ import { useEffect, useState } from 'react';
 export default function Header() {
   const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showFixedHeader, setShowFixedHeader] = useState(false);
 
   useEffect(() => {
     setMounted(true);
+    
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      setShowFixedHeader(scrollY > 100);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const toggleMenu = () => {
@@ -42,7 +51,59 @@ export default function Header() {
   }
 
   return (
-    <div className="relative w-full h-screen overflow-hidden" data-header-section>
+    <>
+      {/* Header fixo que aparece no scroll */}
+      <motion.div
+        className={`lg:hidden fixed top-0 left-0 right-0 z-[100] bg-gray-800 shadow-lg ${
+          showFixedHeader ? 'block' : 'hidden'
+        }`}
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ 
+          opacity: showFixedHeader ? 1 : 0, 
+          y: showFixedHeader ? 0 : -50 
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <div className="flex items-center justify-between px-4">
+          <motion.button
+            onClick={toggleMenu}
+            className="text-white hover:text-gold-400 transition-colors duration-300 p-2"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </motion.button>
+          
+          <motion.div
+            className="flex-1 flex justify-center"
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <Image
+              src="/logo.png"
+              alt="Demolidora LHC"
+              width={400}
+              height={200}
+              className="h-32 w-auto object-cover"
+            />
+          </motion.div>
+          
+          {/* Espaçador para equilibrar o layout */}
+          <div className="w-10"></div>
+        </div>
+      </motion.div>
+
+      <div className="relative w-full h-screen overflow-hidden" data-header-section>
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -273,6 +334,7 @@ export default function Header() {
           </motion.a>
         </motion.div>
       </motion.div>
-    </div>
+      </div>
+    </>
   );
 }
