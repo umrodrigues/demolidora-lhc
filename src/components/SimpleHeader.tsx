@@ -68,6 +68,14 @@ export default function SimpleHeader() {
               Quem Somos
             </motion.a>
             <motion.a 
+              href="/obras-realizadas" 
+              className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-lg px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Obras Realizadas
+            </motion.a>
+            <motion.a 
               href="/contato" 
               className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-lg px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
               whileHover={{ scale: 1.05 }}
