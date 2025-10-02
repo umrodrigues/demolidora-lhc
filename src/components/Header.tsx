@@ -64,6 +64,21 @@ export default function Header() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
+        {/* Selo 10 anos - canto superior esquerdo */}
+        <motion.div
+          className="absolute top-4 left-16 z-50"
+          initial={{ opacity: 0, scale: 0.5 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 1 }}
+        >
+          <Image
+            src="/selo10anos.png"
+            alt="10 anos de experiência"
+            width={80}
+            height={80}
+            className="drop-shadow-lg"
+          />
+        </motion.div>
         {/* Desktop Navigation - mantém layout original */}
         <motion.nav 
           className="hidden lg:flex space-x-4 mr-2"
