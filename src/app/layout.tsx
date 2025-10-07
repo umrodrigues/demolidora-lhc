@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_APP_URL || "https://demolidora-lhc.vercel.app"),
   title: "Demolidora LHC - Demolição e Construção",
   description: "A Demolidora LHC entrega mais do que um serviço, entrega confiança e qualidade. Especializada em demolição e construção.",
   keywords: "demolição, construção, terraplenagem, escavação, Porto Alegre, RS",
