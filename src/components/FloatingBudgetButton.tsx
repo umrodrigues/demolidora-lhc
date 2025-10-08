@@ -1,24 +1,18 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function FloatingBudgetButton() {
   const [isVisible, setIsVisible] = useState(false);
-  const headerRef = useRef<HTMLDivElement>(null);
-  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 2000);
-
     const handleScroll = () => {
       const headerElement = document.querySelector('[data-header-section]');
       if (headerElement) {
         const rect = headerElement.getBoundingClientRect();
-        const isHeaderVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        setIsVisible(!isHeaderVisible);
+        const hasScrolledPastVideo = rect.bottom < 0;
+        setIsVisible(hasScrolledPastVideo);
       }
     };
 
@@ -26,7 +20,6 @@ export default function FloatingBudgetButton() {
     handleScroll();
 
     return () => {
-      clearTimeout(timer);
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
