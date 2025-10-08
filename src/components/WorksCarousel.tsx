@@ -73,14 +73,13 @@ const works = [
 
 export default function WorksCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(3);
+  const [itemsPerView, setItemsPerView] = useState(1);
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth < 768) {
+      const width = window.innerWidth;
+      if (width < 1024) {
         setItemsPerView(1);
-      } else if (window.innerWidth < 1024) {
-        setItemsPerView(2);
       } else {
         setItemsPerView(3);
       }
@@ -97,7 +96,7 @@ export default function WorksCarousel() {
         const maxIndex = Math.max(0, works.length - itemsPerView);
         return prev >= maxIndex ? 0 : prev + 1;
       });
-    }, 5000);
+    }, 10000);
 
     return () => clearInterval(interval);
   }, [itemsPerView]);
@@ -142,7 +141,7 @@ export default function WorksCarousel() {
 
           <div className="overflow-hidden">
             <motion.div
-              className="flex gap-6"
+              className={`flex ${itemsPerView === 1 ? 'gap-0' : 'gap-6'}`}
               animate={{ x: `-${currentIndex * (100 / itemsPerView)}%` }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
             >
@@ -150,7 +149,7 @@ export default function WorksCarousel() {
                 <motion.div
                   key={work.id}
                   className="flex-shrink-0"
-                  style={{ width: `calc(${100 / itemsPerView}% - ${(itemsPerView - 1) * 24 / itemsPerView}px)` }}
+                  style={{ width: itemsPerView === 1 ? '100%' : `calc(${100 / itemsPerView}% - ${(itemsPerView - 1) * 24 / itemsPerView}px)` }}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -163,6 +162,12 @@ export default function WorksCarousel() {
                           src={work.thumbnail}
                           alt={work.title}
                           fill
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          priority={index < 3}
+                          quality={85}
+                          loading={index < 3 ? 'eager' : 'lazy'}
+                          placeholder="blur"
+                          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                           className="object-cover group-hover:scale-110 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
