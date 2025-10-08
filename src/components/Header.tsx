@@ -64,7 +64,7 @@ export default function Header() {
         }}
         transition={{ duration: 0.3 }}
       >
-        <div className="flex items-center justify-between px-4">
+        <div className="flex items-center justify-between px-2 py-2">
           <motion.button
             onClick={toggleMenu}
             className="text-white hover:text-gold-400 transition-colors duration-300 p-2"
@@ -83,20 +83,7 @@ export default function Header() {
             </svg>
           </motion.button>
           
-          <motion.div
-            className="flex-1 flex justify-center"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            <Image
-              src="/logo.png"
-              alt="Demolidora LHC"
-              width={400}
-              height={200}
-              className="h-32 w-auto object-cover"
-            />
-          </motion.div>
+          <div className="flex-1"></div>
           
           {/* Espaçador para equilibrar o layout */}
           <div className="w-10"></div>
