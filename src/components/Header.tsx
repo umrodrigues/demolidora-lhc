@@ -337,21 +337,6 @@ export default function Header() {
                   </svg>
                   Contato
                 </motion.a>
-                <motion.a 
-                  href="#contato" 
-                  className="text-white bg-gold-400 hover:bg-gold-500 transition-all duration-300 font-bold text-lg py-4 px-6 flex items-center justify-center"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setIsMenuOpen(false)}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.6 }}
-                >
-                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Solicitar Orçamento
-                </motion.a>
               </nav>
             </div>
           </motion.div>
