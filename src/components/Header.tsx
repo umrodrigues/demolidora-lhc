@@ -90,7 +90,7 @@ export default function Header() {
         </div>
       </motion.div>
 
-      <div className="relative w-full h-[60vh] lg:h-[85vh] overflow-hidden" data-header-section>
+      <div className="relative w-full h-[95vh] lg:h-[100vh] overflow-hidden" data-header-section>
       <div className="absolute inset-0 z-0">
         <video
           autoPlay
@@ -375,7 +375,7 @@ export default function Header() {
       >
 
         <motion.div
-          className="mt-2 lg:mt-60"
+          className="mt-60 lg:mt-60"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
