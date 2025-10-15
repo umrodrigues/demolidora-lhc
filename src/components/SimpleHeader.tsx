@@ -33,13 +33,13 @@ export default function SimpleHeader() {
                 <Image
                   src="/logo.png"
                   alt="Demolidora LHC"
-                  width={200}
-                  height={160}
+                  width={380}
+                  height={304}
                   className="drop-shadow-lg"
                   style={{ 
                     objectFit: 'cover',
-                    width: '200px',
-                    height: '60px',
+                    width: '380px',
+                    height: '114px',
                   }}
                 />
               </motion.a>
@@ -140,13 +140,13 @@ export default function SimpleHeader() {
                 <Image
                   src="/logo.png"
                   alt="Demolidora LHC"
-                  width={150}
-                  height={45}
+                  width={300}
+                  height={90}
                   className="drop-shadow-lg"
                   style={{ 
                     objectFit: 'cover',
-                    width: '150px',
-                    height: '45px',
+                    width: '300px',
+                    height: '90px',
                   }}
                 />
               </motion.a>

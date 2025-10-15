@@ -21,7 +21,7 @@ export default function Footer() {
                 alt="Demolidora LHC"
                 width={400}
                 height={240}
-                className="sm:w-80 lg:w-96 h-60 object-cover"
+                className="sm:w-80 lg:w-96 h-40 object-cover"
               />
             </div>
           </motion.div>
