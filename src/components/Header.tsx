@@ -177,7 +177,7 @@ export default function Header() {
               alt="Demolidora LHC"
               width={600}
               height={150}
-              className="drop-shadow-2xl w-64 sm:w-80 md:w-96 lg:w-[500px] h-auto"
+              className="drop-shadow-2xl w-[400px] sm:w-[450px] md:w-[500px] lg:w-[500px] h-auto"
             />
           </motion.a>
         </motion.div>
