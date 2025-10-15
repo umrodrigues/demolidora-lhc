@@ -106,27 +106,27 @@ export default function Header() {
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       </div>
 
+      <motion.div
+        className="absolute bottom-8 right-4 lg:top-4 lg:left-16 lg:bottom-auto lg:right-auto z-50"
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, delay: 1 }}
+      >
+        <Image
+          src="/selo10anos.png"
+          alt="10 anos de experiência"
+          width={80}
+          height={80}
+          className="drop-shadow-lg"
+        />
+      </motion.div>
+
       <motion.header 
         className="relative z-50 flex items-center justify-center px-6 h-[300px]"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        {/* Selo 10 anos - canto superior esquerdo */}
-        <motion.div
-          className="absolute top-4 left-16 z-50"
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 1 }}
-        >
-          <Image
-            src="/selo10anos.png"
-            alt="10 anos de experiência"
-            width={80}
-            height={80}
-            className="drop-shadow-lg"
-          />
-        </motion.div>
         {/* Desktop Navigation - mantém layout original */}
         <motion.nav 
           className="hidden lg:flex space-x-4 mr-2"
