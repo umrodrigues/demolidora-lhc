@@ -158,6 +158,14 @@ export default function Header() {
           >
             Quem Somos
           </motion.a>
+          <motion.a 
+            href="/parceiros" 
+            className="text-white hover:text-gold-400 transition-colors duration-300 font-semibold text-xl px-3 py-2 rounded-lg hover:bg-white hover:bg-opacity-10"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Parceiros
+          </motion.a>
         </motion.nav>
 
         <motion.div
@@ -308,6 +316,21 @@ export default function Header() {
                   Quem Somos
                 </motion.a>
                 <motion.a 
+                  href="/parceiros" 
+                  className="text-gray-800 hover:text-white hover:bg-gold-400 transition-all duration-300 font-semibold text-lg py-4 px-6 border-b border-gray-100 flex items-center"
+                  whileHover={{ x: 10 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={() => setIsMenuOpen(false)}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.35 }}
+                >
+                  <svg className="w-5 h-5 mr-3 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                  </svg>
+                  Parceiros
+                </motion.a>
+                <motion.a 
                   href="/obras-realizadas" 
                   className="text-gray-800 hover:text-white hover:bg-gold-400 transition-all duration-300 font-semibold text-lg py-4 px-6 border-b border-gray-100 flex items-center"
                   whileHover={{ x: 10 }}
@@ -330,7 +353,7 @@ export default function Header() {
                   onClick={() => setIsMenuOpen(false)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.5 }}
+                  transition={{ delay: 0.55 }}
                 >
                   <svg className="w-5 h-5 mr-3 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
