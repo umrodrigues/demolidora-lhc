@@ -88,7 +88,7 @@ export default function Footer() {
             </div>
             
             <motion.a
-              href="#contato"
+              href="/#contato"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="btn-small"
