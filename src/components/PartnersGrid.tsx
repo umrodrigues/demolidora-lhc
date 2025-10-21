@@ -41,7 +41,7 @@ export default function PartnersGrid() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
+        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
           {partners.map((partner, index) => (
             <motion.div
               key={partner.name}
@@ -49,15 +49,15 @@ export default function PartnersGrid() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-8 flex items-center justify-center group border border-gray-100 hover:border-gold-200"
+              className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 p-4 lg:p-6 flex items-center justify-center group border border-gray-100 hover:border-gold-200"
             >
-              <div className="relative w-full h-28 flex items-center justify-center">
+              <div className="relative w-full h-20 lg:h-24 flex items-center justify-center">
                 <Image
                   src={partner.logo}
                   alt={partner.name}
-                  width={180}
-                  height={100}
-                  className="object-contain max-w-full max-h-full group-hover:scale-110 transition-transform duration-300 filter brightness-100 group-hover:brightness-110"
+                  width={120}
+                  height={80}
+                  className="object-contain max-w-full max-h-full group-hover:scale-105 transition-transform duration-300 filter brightness-100 group-hover:brightness-110 lg:w-32 lg:h-20"
                   unoptimized
                 />
               </div>
