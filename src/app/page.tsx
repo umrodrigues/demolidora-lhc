@@ -7,10 +7,12 @@ import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import FloatingBudgetButton from "@/components/FloatingBudgetButton";
+import ScrollToHash from "@/components/ScrollToHash";
 
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <ScrollToHash />
       <Header />
       <ServicesSection />
       <WhyChooseSection />
