@@ -124,9 +124,6 @@ export default function WorksCarousel() {
           <h2 className="title-main">
             Obras Realizadas
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Conheça alguns dos projetos que realizamos com excelência e segurança
-          </p>
         </motion.div>
 
         <div className="relative">

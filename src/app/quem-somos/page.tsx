@@ -2,6 +2,7 @@
 
 import SimpleHeader from "@/components/SimpleHeader";
 import Footer from "@/components/Footer";
+import WhyChooseSection from "@/components/WhyChooseSection";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -40,9 +41,6 @@ export default function QuemSomos() {
               </p>
               <p className="text-gray-600 leading-relaxed mb-6 text-lg">
                 Somos especialistas em demolições especiais, cortes estruturais, desmontes residenciais e industriais, terraplanagem, escavação, e reciclagem de resíduos, atendendo a uma ampla gama de setores como construção civil, indústria, infraestrutura e saneamento. O diferencial da LHC é a execução impecável e minuciosa de demolições com planejamento, precisão técnica, rapidez e cuidado com a sustentabilidade do meio ambiente, sempre priorizando a segurança em cada etapa do processo.
-              </p>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                Somos especialistas em demolições controladas, desmontes industriais, terraplanagem, e reciclagem de materiais, atendendo a uma ampla gama de setores como construção civil, indústria, infraestrutura e saneamento. Nosso diferencial está na capacidade de entregar projetos personalizados que atendem às necessidades específicas de cada cliente, sempre com um planejamento minucioso e uma execução impecável.
               </p>
             </div>
           </motion.div>
@@ -123,17 +121,11 @@ export default function QuemSomos() {
             transition={{ duration: 0.6, delay: 0.8 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">
-              Por que Escolher a Demolidora LHC?
-            </h2>
-            <p className="text-gray-600 leading-relaxed mb-8 text-lg text-center max-w-4xl mx-auto">
-              Escolher a LHC Demolidora é optar por uma empresa que alia tradição e inovação, sempre com foco na segurança, qualidade e no melhor resultado para o cliente. Seja para projetos de pequena, média ou grande escala, estamos prontos para transformar desafios em soluções seguras e eficientes.
-            </p>
-            <div className="bg-gold-400 text-white p-8 rounded-2xl text-center shadow-xl max-w-4xl mx-auto">
-              <h3 className="text-3xl font-bold">
-                Demolidora LHC: Demolindo o presente, construindo o futuro.
-              </h3>
-            </div>
+            <WhyChooseSection 
+              title="Por que Escolher a Demolidora LHC?"
+              showTitle={true}
+              fullSection={false}
+            />
           </motion.div>
         </div>
       </section>

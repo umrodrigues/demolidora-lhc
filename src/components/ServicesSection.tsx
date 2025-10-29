@@ -72,7 +72,7 @@ export default function ServicesSection() {
             Nossos Serviços
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Soluções completas em demolição, escavação e terraplenagem com qualidade e segurança
+            Soluções completas em demolição, escavação e terraplenagem com qualidade e segurança!
           </p>
         </motion.div>
 
