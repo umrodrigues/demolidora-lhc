@@ -1,6 +1,7 @@
 import SimpleHeader from "@/components/SimpleHeader";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingBudgetButton from "@/components/FloatingBudgetButton";
 
 export default function TermosUsoPage() {
   return (
@@ -93,6 +94,7 @@ export default function TermosUsoPage() {
       </div>
       <Footer />
       <WhatsAppButton />
+      <FloatingBudgetButton />
     </div>
   );
 }

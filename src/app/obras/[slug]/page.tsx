@@ -9,6 +9,7 @@ import { getWorkBySlug } from '@/data/works';
 import SimpleHeader from '@/components/SimpleHeader';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import FloatingBudgetButton from '@/components/FloatingBudgetButton';
 
 export default function WorkDetailPage() {
   const params = useParams();
@@ -168,6 +169,7 @@ export default function WorkDetailPage() {
 
       <Footer />
       <WhatsAppButton />
+      <FloatingBudgetButton />
     </div>
   );
 }

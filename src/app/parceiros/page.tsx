@@ -2,6 +2,7 @@ import SimpleHeader from "@/components/SimpleHeader";
 import PartnersGrid from "@/components/PartnersGrid";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingBudgetButton from "@/components/FloatingBudgetButton";
 
 export default function ParceirosPage() {
   return (
@@ -10,6 +11,7 @@ export default function ParceirosPage() {
       <PartnersGrid />
       <Footer />
       <WhatsAppButton />
+      <FloatingBudgetButton />
     </div>
   );
 }

@@ -2,6 +2,7 @@ import SimpleHeader from "@/components/SimpleHeader";
 import Footer from "@/components/Footer";
 import WorksSection from "@/components/WorksSection";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingBudgetButton from "@/components/FloatingBudgetButton";
 
 export default function ObrasRealizadas() {
   return (
@@ -12,6 +13,7 @@ export default function ObrasRealizadas() {
         </div>
       <Footer />
       <WhatsAppButton />
+      <FloatingBudgetButton />
     </div>
   );
 }

@@ -3,6 +3,7 @@
 import SimpleHeader from "@/components/SimpleHeader";
 import Footer from "@/components/Footer";
 import WhyChooseSection from "@/components/WhyChooseSection";
+import FloatingBudgetButton from "@/components/FloatingBudgetButton";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -131,6 +132,7 @@ export default function QuemSomos() {
       </section>
       
       <Footer />
+      <FloatingBudgetButton />
     </div>
   );
 }

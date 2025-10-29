@@ -1,6 +1,7 @@
 import SimpleHeader from "@/components/SimpleHeader";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import FloatingBudgetButton from "@/components/FloatingBudgetButton";
 
 export default function PoliticaPrivacidadePage() {
   return (
@@ -102,6 +103,7 @@ export default function PoliticaPrivacidadePage() {
       </div>
       <Footer />
       <WhatsAppButton />
+      <FloatingBudgetButton />
     </div>
   );
 }
