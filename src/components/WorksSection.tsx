@@ -86,7 +86,7 @@ export default function WorksSection() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {works.map((work, index) => (
             <motion.div
               key={work.id}
@@ -96,8 +96,8 @@ export default function WorksSection() {
               viewport={{ once: true }}
             >
               <Link href={`/obras/${work.slug}`}>
-                <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer bg-white">
-                  <div className="relative h-64 overflow-hidden">
+                <div className="group relative overflow-hidden rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer bg-white h-full">
+                  <div className="relative h-72 md:h-80 lg:h-96 overflow-hidden">
                     <Image
                       src={work.thumbnail}
                       alt={work.title}
@@ -106,21 +106,21 @@ export default function WorksSection() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     
-                    <div className="absolute top-4 right-4 bg-yellow-500 text-gray-900 px-3 py-1 rounded-full text-sm font-semibold">
+                    <div className="absolute top-4 right-4 bg-yellow-500 text-gray-900 px-4 py-2 rounded-full text-sm lg:text-base font-semibold shadow-lg">
                       {work.totalImages} fotos
                     </div>
                   </div>
 
-                  <div className="p-6">
-                    <div className="mb-2">
-                      <span className="text-sm text-yellow-600 font-semibold">
+                  <div className="p-6 lg:p-8">
+                    <div className="mb-3">
+                      <span className="text-sm lg:text-base text-yellow-600 font-semibold">
                         {work.category}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors">
+                    <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-3 group-hover:text-yellow-600 transition-colors">
                       {work.title}
                     </h3>
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-600 mb-5 text-base lg:text-lg">
                       {work.description}
                     </p>
                     <div className="flex items-center text-yellow-600 font-semibold group-hover:gap-2 transition-all">
