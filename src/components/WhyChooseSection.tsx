@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 const features = [
   {
     id: 'experience',
-    title: '1. Experiência e Credibilidade',
+    title: 'Experiência e Credibilidade',
     description: 'Com uma década de atuação, a LHC Demolidora se destaca pela confiança e excelência técnica. Cada projeto é conduzido com segurança, planejamento e foco em resultados, consolidando a empresa como referência no setor.',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -15,7 +15,7 @@ const features = [
   },
   {
     id: 'equipment',
-    title: '2. Estrutura e Tecnologia',
+    title: 'Estrutura e Tecnologia',
     description: 'A LHC dispõe de equipamentos modernos, equipe própria e frota completa, garantindo eficiência e controle total sobre cada etapa da obra. Isso reduz custos e aumenta a qualidade da execução.',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -25,7 +25,7 @@ const features = [
   },
   {
     id: 'commitment',
-    title: '3. Comprometimento com o Cliente',
+    title: 'Comprometimento com o Cliente',
     description: 'A LHC não entrega apenas demolição — entrega soluções completas. Prazos cumpridos, comunicação clara e atenção aos detalhes fazem parte do DNA da empresa.',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -35,7 +35,7 @@ const features = [
   },
   {
     id: 'environment',
-    title: '4. Responsabilidade Ambiental',
+    title: 'Responsabilidade Ambiental',
     description: 'Com foco na demolição sustentável, a LHC prioriza o reaproveitamento de materiais e o descarte correto dos resíduos. Assim, cada obra contribui para um ciclo de construção mais consciente e responsável com o meio ambiente.',
     icon: (
       <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -76,7 +76,7 @@ export default function WhyChooseSection({
         </motion.div>
       )}
 
-      <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ${containerClassName}`}>
+      <div className={`grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 ${containerClassName}`}>
         {features.map((feature, index) => (
           <motion.div
             key={feature.id}
@@ -84,7 +84,7 @@ export default function WhyChooseSection({
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: index * 0.2 }}
             viewport={{ once: true }}
-            className="card p-8 text-center hover:shadow-xl transition-shadow duration-300"
+            className="card p-8 lg:p-10 text-center hover:shadow-xl transition-shadow duration-300"
           >
             <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
