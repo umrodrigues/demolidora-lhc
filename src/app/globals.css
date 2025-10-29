@@ -77,4 +77,44 @@ html {
   .container-form {
     @apply max-w-4xl mx-auto;
   }
+  
+  /* Carrossel otimizado para mobile */
+  .carousel-container {
+    @apply overflow-hidden;
+    touch-action: pan-x;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .carousel-track {
+    will-change: transform;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+  
+  .carousel-item {
+    @apply flex-shrink-0;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+  }
+  
+  /* Otimizações para imagens no carrossel */
+  .carousel-image {
+    @apply object-cover;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  
+  /* Indicadores do carrossel */
+  .carousel-indicator {
+    @apply h-3 rounded-full transition-all duration-200;
+    will-change: width, background-color;
+  }
+  
+  .carousel-indicator.active {
+    @apply bg-yellow-500 w-8;
+  }
+  
+  .carousel-indicator.inactive {
+    @apply bg-gray-300 hover:bg-gray-400 w-3;
+  }
 }
