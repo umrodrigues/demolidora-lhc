@@ -66,10 +66,6 @@ export default function WorkDetailPage() {
               <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
                 {work.title}
               </h1>
-              
-              <p className="text-xl text-gray-600 leading-relaxed">
-                {work.description}
-              </p>
 
               <div className="flex items-center gap-4 mt-6 text-gray-600">
                 <div className="flex items-center">
