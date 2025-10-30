@@ -204,7 +204,7 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      <div className="relative w-full h-screen overflow-hidden" data-header-section ref={headerSectionRef}>
+      <div className="relative w-full overflow-hidden" style={{ height: '100dvh' }} data-header-section ref={headerSectionRef}>
       <div className="absolute inset-0 z-0">
         {showVideoFallback && (
           <img
@@ -250,7 +250,7 @@ export default function Header() {
       </motion.div>
 
       <motion.header 
-        className="relative z-50 flex items-center justify-center px-6 h-[300px]"
+        className="absolute inset-0 z-50 flex items-center justify-center px-6"
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -490,8 +490,7 @@ export default function Header() {
       </AnimatePresence>
 
       <motion.div 
-        className="relative z-10 flex flex-col items-center justify-center h-full px-8 text-center pointer-events-none"
-        style={{ marginTop: '-180px' }}
+        className="absolute inset-0 z-10 flex flex-col items-center justify-center px-8 text-center pointer-events-none"
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.6 }}
