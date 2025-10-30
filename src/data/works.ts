@@ -2,7 +2,6 @@ export interface Work {
   id: string;
   slug: string;
   title: string;
-  description: string;
   category: string;
   location?: string;
   year?: string;
@@ -14,7 +13,6 @@ export const works: Record<string, Work> = {
     id: 'ford',
     slug: '1-ford',
     title: 'Demolição Predial',
-    description: 'Demolição e terraplenagem completa do projeto Ford. Trabalho realizado com equipamentos de última geração e máxima segurança.',
     category: 'Demolição e Terraplenagem',
     images: [
       '/obras/1 - Demolição Predial/01 - Imagem Início .jpg',
@@ -29,7 +27,6 @@ export const works: Record<string, Work> = {
     id: 'unimed',
     slug: '2-unimed',
     title: 'UNIMED',
-    description: 'Projeto de escavação e preparação de terreno para Unimed. Trabalho realizado com precisão e dentro do prazo estabelecido.',
     category: 'Escavação',
     images: [
       '/obras/2 - UNIMED/01 Foto de Inicio .jpg',
@@ -45,7 +42,6 @@ export const works: Record<string, Work> = {
     id: 'ciee',
     slug: '3-ciee',
     title: 'Demolição Cieee',
-    description: 'Demolição controlada e remoção de estruturas do projeto CIEE. Execução com segurança e eficiência.',
     category: 'Demolição',
     images: [
       '/obras/3 - Demolição Cieee/01 Foto de Inicio .jpg',
@@ -59,7 +55,6 @@ export const works: Record<string, Work> = {
     id: 'marcelo-gama',
     slug: '4-marcelo-gama',
     title: 'Escavação Marcelo Gama',
-    description: 'Terraplenagem e preparação de terreno para construção. Nivelamento perfeito e compactação adequada do solo.',
     category: 'Terraplenagem',
     images: [
       '/obras/4 - Escavação Marcelo Gama/01 Foto de Inicio .jpg',
@@ -74,7 +69,6 @@ export const works: Record<string, Work> = {
     id: 'arambare',
     slug: '5-arambare',
     title: 'Demolição caixa d’água Arambare',
-    description: 'Projeto de escavação e movimentação de terra em Arambaré. Trabalho realizado com equipamentos modernos e equipe especializada.',
     category: 'Escavação',
     images: [
       '/obras/5 - Demolição caixa d’água Arambare/01 Foto de Inicio .jpg',
@@ -89,7 +83,6 @@ export const works: Record<string, Work> = {
     id: 'machopo',
     slug: '6-machopo',
     title: 'Demolição Chaminés Mapocho',
-    description: 'Demolição e preparação de área para novo empreendimento. Remoção segura de estruturas e limpeza completa do terreno.',
     category: 'Demolição',
     images: [
       '/obras/6 - Demolição Chaminés Mapocho/01 Foto de Inicio .jpg',
@@ -104,7 +97,6 @@ export const works: Record<string, Work> = {
     id: 'estrutura',
     slug: '7-estrutura',
     title: 'Desmontagem de Estrutura Metálica',
-    description: 'Demolição de estruturas complexas com segurança. Utilização de técnicas avançadas e equipamentos especializados.',
     category: 'Demolição',
     images: [
       '/obras/7 - Desmontagem de Estrutura Metálica/01 Foto de Inicio .jpg',
@@ -119,7 +111,6 @@ export const works: Record<string, Work> = {
     id: 'parker',
     slug: '8-parker',
     title: 'Demolição Parker',
-    description: 'Demolição executada com segurança e eficiência, contemplando todas as etapas do processo.',
     category: 'Demolição',
     images: [
       '/obras/08 - Demolição Parker/01 foto .jpg',

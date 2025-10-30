@@ -10,7 +10,6 @@ const works = [
     id: 'ford',
     slug: '1-ford',
     title: 'Demolição Predial',
-    description: 'Demolição e terraplenagem completa do projeto Ford',
     thumbnail: '/obras/1 - Demolição Predial/01 - Imagem Início .jpg',
     totalImages: 6,
     category: 'Demolição e Terraplenagem'
@@ -19,7 +18,6 @@ const works = [
     id: 'unimed',
     slug: '2-unimed',
     title: 'UNIMED',
-    description: 'Projeto de escavação e preparação de terreno para Unimed',
     thumbnail: '/obras/2 - UNIMED/01 Foto de Inicio .jpg',
     totalImages: 7,
     category: 'Escavação'
@@ -28,7 +26,6 @@ const works = [
     id: 'ciee',
     slug: '3-ciee',
     title: 'Demolição Cieee',
-    description: 'Demolição controlada e remoção de estruturas do projeto CIEE',
     thumbnail: '/obras/3 - Demolição Cieee/01 Foto de Inicio .jpg',
     totalImages: 5,
     category: 'Demolição'
@@ -37,7 +34,6 @@ const works = [
     id: 'marcelo-gama',
     slug: '4-marcelo-gama',
     title: 'Escavação Marcelo Gama',
-    description: 'Terraplenagem e preparação de terreno para construção',
     thumbnail: '/obras/4 - Escavação Marcelo Gama/01 Foto de Inicio .jpg',
     totalImages: 6,
     category: 'Terraplenagem'
@@ -46,7 +42,6 @@ const works = [
     id: 'arambare',
     slug: '5-arambare',
     title: 'Demolição caixa d’água Arambare',
-    description: 'Projeto de escavação e movimentação de terra em Arambaré',
     thumbnail: '/obras/5 - Demolição caixa d’água Arambare/01 Foto de Inicio .jpg',
     totalImages: 6,
     category: 'Escavação'
@@ -55,7 +50,6 @@ const works = [
     id: 'machopo',
     slug: '6-machopo',
     title: 'Demolição Chaminés Mapocho',
-    description: 'Demolição e preparação de área para novo empreendimento',
     thumbnail: '/obras/6 - Demolição Chaminés Mapocho/01 Foto de Inicio .jpg',
     totalImages: 6,
     category: 'Demolição'
@@ -64,7 +58,6 @@ const works = [
     id: 'estrutura',
     slug: '7-estrutura',
     title: 'Desmontagem de Estrutura Metálica',
-    description: 'Demolição de estruturas complexas com segurança',
     thumbnail: '/obras/7 - Desmontagem de Estrutura Metálica/01 Foto de Inicio .jpg',
     totalImages: 6,
     category: 'Demolição'
@@ -73,7 +66,6 @@ const works = [
     id: 'parker',
     slug: '8-parker',
     title: 'Demolição Parker',
-    description: 'Demolição executada com segurança e eficiência',
     thumbnail: '/obras/08 - Demolição Parker/01 foto .jpg',
     totalImages: 4,
     category: 'Demolição'
@@ -85,7 +77,6 @@ export default function WorksCarousel() {
   const [itemsPerView, setItemsPerView] = useState(1);
   const [isDragging, setIsDragging] = useState(false);
 
-  // Memoizar o cálculo de itemsPerView para evitar re-renders desnecessários
   const handleResize = useCallback(() => {
     const width = window.innerWidth;
     const newItemsPerView = width < 1024 ? 1 : 3;
@@ -98,16 +89,14 @@ export default function WorksCarousel() {
     return () => window.removeEventListener('resize', handleResize);
   }, [handleResize]);
 
-  // Memoizar maxIndex para evitar recálculos desnecessários
   const maxIndex = useMemo(() => Math.max(0, works.length - itemsPerView), [itemsPerView]);
 
-  // Auto-play otimizado
   useEffect(() => {
-    if (isDragging) return; // Pausar auto-play durante drag
+    if (isDragging) return; 
     
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-    }, 8000); // Aumentado para 8s para dar mais tempo de leitura
+    }, 8000); 
 
     return () => clearInterval(interval);
   }, [maxIndex, isDragging]);
@@ -120,7 +109,6 @@ export default function WorksCarousel() {
     setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
   }, [maxIndex]);
 
-  // Gestos de toque para mobile
   const handleDragStart = () => {
     setIsDragging(true);
   };
@@ -220,9 +208,6 @@ export default function WorksCarousel() {
                         <h3 className="text-2xl font-bold text-gray-900 mb-2 group-hover:text-yellow-600 transition-colors duration-200">
                           {work.title}
                         </h3>
-                        <p className="text-gray-600 mb-4 line-clamp-2">
-                          {work.description}
-                        </p>
                         <div className="flex items-center text-yellow-600 font-semibold group-hover:gap-2 transition-all duration-200">
                           Ver detalhes
                           <svg 

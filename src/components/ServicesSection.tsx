@@ -128,10 +128,6 @@ export default function ServicesSection() {
                     {service.title}
                   </motion.h3>
                   
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-
                   <div className="space-y-3">
                     <h4 className="font-semibold text-gray-700 mb-3">
                       Características do Serviço:
