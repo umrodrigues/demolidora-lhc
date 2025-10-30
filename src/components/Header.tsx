@@ -2,12 +2,13 @@
 
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export default function Header() {
   const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showFixedHeader, setShowFixedHeader] = useState(false);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
     setMounted(true);
@@ -20,6 +21,47 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+    videoElement.playbackRate = 0.9;
+
+    const tryPlay = () => {
+      const playPromise = videoElement.play();
+      if (playPromise && typeof playPromise.then === 'function') {
+        playPromise.catch(() => {
+        });
+      }
+    };
+
+    const onCanPlay = () => tryPlay();
+    const onLoadedData = () => tryPlay();
+
+    videoElement.addEventListener('canplay', onCanPlay);
+    videoElement.addEventListener('loadeddata', onLoadedData);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
+          tryPlay();
+        } else {
+          videoElement.pause();
+        }
+      },
+      { threshold: [0, 0.25, 0.5, 1] }
+    );
+
+    observer.observe(videoElement);
+
+    return () => {
+      videoElement.removeEventListener('canplay', onCanPlay);
+      videoElement.removeEventListener('loadeddata', onLoadedData);
+      observer.disconnect();
+    };
+  }, [mounted]);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -93,6 +135,7 @@ export default function Header() {
       <div className="relative w-full h-[95vh] lg:h-[100vh] overflow-hidden" data-header-section>
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
@@ -100,6 +143,7 @@ export default function Header() {
           className="absolute inset-0 w-full h-full object-cover"
           preload="auto"
           crossOrigin="anonymous"
+          disableRemotePlayback
         >
           <source src="/videolhc.mp4" type="video/mp4" />
         </video>
