@@ -204,7 +204,7 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      <div className="relative w-full h-[95vh] lg:h-[100vh] overflow-hidden" data-header-section ref={headerSectionRef}>
+      <div className="relative w-full h-screen overflow-hidden" data-header-section ref={headerSectionRef}>
       <div className="absolute inset-0 z-0">
         {showVideoFallback && (
           <img
