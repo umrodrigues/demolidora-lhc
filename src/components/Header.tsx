@@ -22,6 +22,12 @@ export default function Header() {
   useEffect(() => {
     const videoElement = videoRef.current;
     if (!videoElement) return;
+    videoElement.muted = true;
+    videoElement.setAttribute('muted', '');
+    videoElement.playsInline = true;
+    videoElement.setAttribute('playsinline', '');
+    videoElement.setAttribute('webkit-playsinline', '');
+    videoElement.removeAttribute('controls');
     videoElement.playbackRate = 0.9;
 
     const tryPlay = () => {
@@ -34,9 +40,11 @@ export default function Header() {
 
     const onCanPlay = () => tryPlay();
     const onLoadedData = () => tryPlay();
+    const onLoadedMetadata = () => tryPlay();
 
     videoElement.addEventListener('canplay', onCanPlay);
     videoElement.addEventListener('loadeddata', onLoadedData);
+    videoElement.addEventListener('loadedmetadata', onLoadedMetadata);
 
     const observer = new IntersectionObserver(
       (entries) => {
@@ -53,10 +61,28 @@ export default function Header() {
 
     observer.observe(videoElement);
 
+    // Fallback: em alguns Safaris o autoplay só inicia após o primeiro gesto do usuário
+    let interactionHandled = false;
+    const handleFirstInteraction = () => {
+      if (interactionHandled) return;
+      interactionHandled = true;
+      tryPlay();
+      window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('pointerdown', handleFirstInteraction);
+      window.removeEventListener('click', handleFirstInteraction, true);
+    };
+    window.addEventListener('touchstart', handleFirstInteraction, { passive: true });
+    window.addEventListener('pointerdown', handleFirstInteraction, { passive: true });
+    window.addEventListener('click', handleFirstInteraction, true);
+
     return () => {
       videoElement.removeEventListener('canplay', onCanPlay);
       videoElement.removeEventListener('loadeddata', onLoadedData);
+      videoElement.removeEventListener('loadedmetadata', onLoadedMetadata);
       observer.disconnect();
+      window.removeEventListener('touchstart', handleFirstInteraction);
+      window.removeEventListener('pointerdown', handleFirstInteraction);
+      window.removeEventListener('click', handleFirstInteraction, true);
     };
   }, []);
 
@@ -66,7 +92,6 @@ export default function Header() {
 
   return (
     <>
-      {/* Header fixo que aparece no scroll */}
       <motion.div
         className={`lg:hidden fixed top-0 left-0 right-0 z-[100] bg-gray-800 shadow-lg ${
           showFixedHeader ? 'block' : 'hidden'
@@ -116,6 +141,9 @@ export default function Header() {
           preload="auto"
           crossOrigin="anonymous"
           disableRemotePlayback
+          controls={false}
+          controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
+          aria-hidden="true"
         >
           <source src="/videolhc.mp4" type="video/mp4" />
         </video>
