@@ -5,14 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useEffect, useRef, useState } from 'react';
 
 export default function Header() {
-  const [mounted, setMounted] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showFixedHeader, setShowFixedHeader] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    setMounted(true);
-    
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setShowFixedHeader(scrollY > 100);
@@ -61,36 +58,11 @@ export default function Header() {
       videoElement.removeEventListener('loadeddata', onLoadedData);
       observer.disconnect();
     };
-  }, [mounted]);
+  }, []);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
-
-  if (!mounted) {
-    return (
-      <div className="relative w-full h-screen overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/videolhc.mp4" type="video/mp4" />
-          </video>
-          <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-        </div>
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <div className="text-white text-center">
-            <div className="text-4xl font-bold mb-4">DEMOLIDORA LHC</div>
-            <div className="text-xl">Carregando...</div>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <>
