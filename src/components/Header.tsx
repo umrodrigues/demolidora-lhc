@@ -27,6 +27,12 @@ export default function Header() {
     videoElement.playsInline = true;
     videoElement.setAttribute('playsinline', '');
     videoElement.setAttribute('webkit-playsinline', '');
+    videoElement.setAttribute('autoplay', '');
+    try {
+      // @ts-ignore defaultMuted existe em runtime em HTMLMediaElement
+      videoElement.defaultMuted = true;
+    } catch {}
+    videoElement.volume = 0;
     videoElement.removeAttribute('controls');
     videoElement.playbackRate = 0.9;
 
@@ -38,9 +44,25 @@ export default function Header() {
       }
     };
 
+    // Tentar tocar imediatamente após o mount
+    if (typeof window !== 'undefined') {
+      if ('requestAnimationFrame' in window) {
+        window.requestAnimationFrame(() => {
+          tryPlay();
+        });
+      } else {
+        setTimeout(() => tryPlay(), 0);
+      }
+    }
+
     const onCanPlay = () => tryPlay();
     const onLoadedData = () => tryPlay();
-    const onLoadedMetadata = () => tryPlay();
+    const onLoadedMetadata = () => {
+      try {
+        videoElement.load();
+      } catch {}
+      tryPlay();
+    };
 
     videoElement.addEventListener('canplay', onCanPlay);
     videoElement.addEventListener('loadeddata', onLoadedData);
@@ -56,7 +78,7 @@ export default function Header() {
           videoElement.pause();
         }
       },
-      { threshold: [0, 0.25, 0.5, 1] }
+      { threshold: [0, 0.01, 0.25, 0.5, 1] }
     );
 
     observer.observe(videoElement);
@@ -75,6 +97,13 @@ export default function Header() {
     window.addEventListener('pointerdown', handleFirstInteraction, { passive: true });
     window.addEventListener('click', handleFirstInteraction, true);
 
+    const onVisibilityChange = () => {
+      if (!document.hidden) {
+        tryPlay();
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibilityChange);
+
     return () => {
       videoElement.removeEventListener('canplay', onCanPlay);
       videoElement.removeEventListener('loadeddata', onLoadedData);
@@ -83,6 +112,7 @@ export default function Header() {
       window.removeEventListener('touchstart', handleFirstInteraction);
       window.removeEventListener('pointerdown', handleFirstInteraction);
       window.removeEventListener('click', handleFirstInteraction, true);
+      document.removeEventListener('visibilitychange', onVisibilityChange);
     };
   }, []);
 
@@ -145,6 +175,7 @@ export default function Header() {
           controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
           aria-hidden="true"
         >
+          <source src="/videolhc.webm" type="video/webm" />
           <source src="/videolhc.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
