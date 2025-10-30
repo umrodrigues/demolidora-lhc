@@ -123,7 +123,7 @@ export default function Header() {
       </div>
 
       <motion.div
-        className="absolute bottom-8 right-4 lg:top-4 lg:left-16 lg:bottom-auto lg:right-auto z-50"
+        className="hidden lg:block absolute bottom-8 right-4 lg:top-4 lg:left-16 lg:bottom-auto lg:right-auto z-50"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 1 }}
@@ -396,6 +396,16 @@ export default function Header() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
         >
+          {/* Selo 10 anos acima do botão, apenas no mobile */}
+          <div className="lg:hidden flex justify-center">
+            <Image
+              src="/selo10anos.png"
+              alt="10 anos de experiência"
+              width={80}
+              height={80}
+              className="drop-shadow-lg w-24 h-24"
+            />
+          </div>
           <motion.a 
             href="#contato"
             className="btn-primary text-xl inline-block pointer-events-auto"
