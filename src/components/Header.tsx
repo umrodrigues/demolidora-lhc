@@ -108,10 +108,10 @@ export default function Header() {
       <div className="absolute inset-0 z-0">
         <video
           ref={videoRef}
-          autoPlay
-          muted
+          autoPlay={true}
+          muted={true}
           loop
-          playsInline
+          playsInline={true}
           className="absolute inset-0 w-full h-full object-cover"
           preload="auto"
           crossOrigin="anonymous"
