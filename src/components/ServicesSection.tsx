@@ -54,6 +54,23 @@ const services = [
         <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
       </svg>
     )
+  },
+  {
+    id: 'locacao',
+    title: 'Locação de máquinas',
+    description: 'Locação de máquinas e equipamentos com operadores qualificados para sua obra.',
+    image: '/locacao-maquinas.jpg',
+    characteristics: [
+      'Escavadeiras, retroescavadeiras, rompedores',
+      'Caminhões e equipamentos de apoio',
+      'Locação com ou sem operador',
+      'Manutenção preventiva e disponibilidade'
+    ],
+    icon: (
+      <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+        <path fillRule="evenodd" d="M3 5a2 2 0 012-2h6a2 2 0 012 2v3h2a2 2 0 012 2v5a2 2 0 01-2 2h-2.28a2.5 2.5 0 10-4.44 0H7.72a2.5 2.5 0 10-4.44 0H5a2 2 0 002-2V5H5a2 2 0 00-2 2v8H2V7a2 2 0 011-1.732V5zM8 5v5h3V5H8z" clipRule="evenodd" />
+      </svg>
+    )
   }
 ];
 
@@ -72,11 +89,11 @@ export default function ServicesSection() {
             Nossos Serviços
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Soluções completas em demolição, escavação e terraplenagem com qualidade e segurança!
+            Soluções completas em demolição, escavação, terraplenagem e locação de máquinas com qualidade e segurança!
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
@@ -87,7 +104,7 @@ export default function ServicesSection() {
               className="group"
             >
               <div className="card-hover">
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative h-[520px] overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
