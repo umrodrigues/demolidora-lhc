@@ -7,6 +7,8 @@ import { useEffect, useRef, useState } from 'react';
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showFixedHeader, setShowFixedHeader] = useState(false);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+  const [showVideoFallback, setShowVideoFallback] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
@@ -61,11 +63,16 @@ export default function Header() {
       tryPlay();
     };
     const onCanPlayThrough = () => tryPlay();
+    const onPlaying = () => {
+      setIsVideoPlaying(true);
+      setShowVideoFallback(false);
+    };
 
     videoElement.addEventListener('canplay', onCanPlay);
     videoElement.addEventListener('loadeddata', onLoadedData);
     videoElement.addEventListener('loadedmetadata', onLoadedMetadata);
     videoElement.addEventListener('canplaythrough', onCanPlayThrough);
+    videoElement.addEventListener('playing', onPlaying);
 
     const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     const observer = new IntersectionObserver(
@@ -126,6 +133,12 @@ export default function Header() {
       }
     };
     document.addEventListener('visibilitychange', onVisibilityChange);
+    // Timeout: se após 4s não estiver tocando, mostra fallback animado
+    const fallbackTimeout = window.setTimeout(() => {
+      if (!isVideoPlaying) {
+        setShowVideoFallback(true);
+      }
+    }, 4000);
 
     return () => {
       videoElement.removeEventListener('canplay', onCanPlay);
@@ -142,6 +155,7 @@ export default function Header() {
       window.removeEventListener('orientationchange', onOrientationChange);
       window.removeEventListener('scroll', onScroll);
       document.removeEventListener('visibilitychange', onVisibilityChange);
+      window.clearTimeout(fallbackTimeout);
     };
   }, []);
 
@@ -190,6 +204,14 @@ export default function Header() {
 
       <div className="relative w-full h-[95vh] lg:h-[100vh] overflow-hidden" data-header-section>
       <div className="absolute inset-0 z-0">
+        {/* Fallback animado caso autoplay seja bloqueado (use um .webp/.gif animado) */}
+        {showVideoFallback && (
+          <img
+            src="/videolhc_fallback.webp"
+            alt="Fundo animado"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
         <video
           ref={videoRef}
           autoPlay={true}
