@@ -99,6 +99,27 @@ export default function Header() {
     window.addEventListener('pointerdown', handleFirstInteraction, { passive: true });
     window.addEventListener('click', handleFirstInteraction, true);
 
+    // Reforço agressivo no mobile: tentar tocar repetidamente nos primeiros 10s
+    let retryCount = 0;
+    const maxRetries = 20; // 20 * 500ms = 10s
+    const retryTimer = setInterval(() => {
+      tryPlay();
+      retryCount += 1;
+      if (retryCount >= maxRetries) {
+        clearInterval(retryTimer);
+      }
+    }, 500);
+
+    // Tocar em mais eventos comuns no mobile
+    const onPageShow = () => tryPlay();
+    const onFocus = () => tryPlay();
+    const onOrientationChange = () => tryPlay();
+    const onScroll = () => tryPlay();
+    window.addEventListener('pageshow', onPageShow);
+    window.addEventListener('focus', onFocus);
+    window.addEventListener('orientationchange', onOrientationChange);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
     const onVisibilityChange = () => {
       if (!document.hidden) {
         tryPlay();
@@ -115,6 +136,11 @@ export default function Header() {
       window.removeEventListener('touchstart', handleFirstInteraction);
       window.removeEventListener('pointerdown', handleFirstInteraction);
       window.removeEventListener('click', handleFirstInteraction, true);
+      clearInterval(retryTimer);
+      window.removeEventListener('pageshow', onPageShow);
+      window.removeEventListener('focus', onFocus);
+      window.removeEventListener('orientationchange', onOrientationChange);
+      window.removeEventListener('scroll', onScroll);
       document.removeEventListener('visibilitychange', onVisibilityChange);
     };
   }, []);
