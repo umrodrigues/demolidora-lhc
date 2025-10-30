@@ -55,7 +55,7 @@ export default function FloatingBudgetButton() {
             damping: 30,
             duration: 0.5
           }}
-          className="fixed top-12 right-4 sm:top-6 sm:right-6 z-[9999]"
+          className="fixed top-16 right-4 sm:top-6 sm:right-6 z-[9999]"
         >
           <motion.div
             className="absolute inset-0 bg-gold-400 rounded-full opacity-40 pointer-events-none"

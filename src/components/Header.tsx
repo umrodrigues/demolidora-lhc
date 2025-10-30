@@ -498,7 +498,7 @@ export default function Header() {
       >
 
         <motion.div
-          className="mt-80 lg:mt-60"
+          className="mt-96 lg:mt-60"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
