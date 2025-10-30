@@ -16,6 +16,24 @@
       "main": true
     }
   },
+  "redirects": [
+    { "source": "/index.html", "destination": "/", "permanent": true },
+    { "source": "/contato.html", "destination": "/contato", "permanent": true },
+    { "source": "/quem-somos.html", "destination": "/quem-somos", "permanent": true },
+    { "source": "/obras.html", "destination": "/obras-realizadas", "permanent": true },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "demolidoralhc.vercel.app" }],
+      "destination": "https://www.demolidoralhc.com.br/:1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "demolidoralhc.com.br" }],
+      "destination": "https://www.demolidoralhc.com.br/:1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/videolhc.mp4",
