@@ -10,15 +10,24 @@ export default function Header() {
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const [showVideoFallback, setShowVideoFallback] = useState(false);
   const videoRef = useRef<HTMLVideoElement | null>(null);
+  const headerSectionRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      setShowFixedHeader(scrollY > 100);
-    };
+    const headerSection = headerSectionRef.current;
+    if (!headerSection) return;
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    const headerObserver = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (!entry) return;
+        setShowFixedHeader(!entry.isIntersecting);
+      },
+      { threshold: 0, rootMargin: '-10px 0px 0px 0px' }
+    );
+
+    headerObserver.observe(headerSection);
+    
+    return () => headerObserver.disconnect();
   }, []);
 
   useEffect(() => {
@@ -31,7 +40,6 @@ export default function Header() {
     videoElement.setAttribute('webkit-playsinline', '');
     videoElement.setAttribute('autoplay', '');
     try {
-      // @ts-ignore defaultMuted existe em runtime em HTMLMediaElement
       videoElement.defaultMuted = true;
     } catch {}
     videoElement.volume = 0;
@@ -46,7 +54,6 @@ export default function Header() {
       }
     };
 
-    // Tentar tocar imediatamente após o mount
     if (typeof window !== 'undefined') {
       if ('requestAnimationFrame' in window) {
         window.requestAnimationFrame(() => {
@@ -75,7 +82,7 @@ export default function Header() {
     videoElement.addEventListener('playing', onPlaying);
 
     const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-    const observer = new IntersectionObserver(
+    const videoObserver = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         if (!entry) return;
@@ -90,9 +97,8 @@ export default function Header() {
       { threshold: [0, 0.01, 0.25, 0.5, 1] }
     );
 
-    observer.observe(videoElement);
+    videoObserver.observe(videoElement);
 
-    // Fallback: em alguns Safaris o autoplay só inicia após o primeiro gesto do usuário
     let interactionHandled = false;
     const handleFirstInteraction = () => {
       if (interactionHandled) return;
@@ -106,9 +112,8 @@ export default function Header() {
     window.addEventListener('pointerdown', handleFirstInteraction, { passive: true });
     window.addEventListener('click', handleFirstInteraction, true);
 
-    // Reforço agressivo no mobile: tentar tocar repetidamente nos primeiros 10s
     let retryCount = 0;
-    const maxRetries = 20; // 20 * 500ms = 10s
+    const maxRetries = 20;
     const retryTimer = setInterval(() => {
       tryPlay();
       retryCount += 1;
@@ -117,7 +122,6 @@ export default function Header() {
       }
     }, 500);
 
-    // Tocar em mais eventos comuns no mobile
     const onPageShow = () => tryPlay();
     const onFocus = () => tryPlay();
     const onOrientationChange = () => tryPlay();
@@ -133,7 +137,6 @@ export default function Header() {
       }
     };
     document.addEventListener('visibilitychange', onVisibilityChange);
-    // Timeout: se após 4s não estiver tocando, mostra fallback animado
     const fallbackTimeout = window.setTimeout(() => {
       if (!isVideoPlaying) {
         setShowVideoFallback(true);
@@ -145,7 +148,7 @@ export default function Header() {
       videoElement.removeEventListener('loadeddata', onLoadedData);
       videoElement.removeEventListener('loadedmetadata', onLoadedMetadata);
       videoElement.removeEventListener('canplaythrough', onCanPlayThrough);
-      observer.disconnect();
+      videoObserver.disconnect();
       window.removeEventListener('touchstart', handleFirstInteraction);
       window.removeEventListener('pointerdown', handleFirstInteraction);
       window.removeEventListener('click', handleFirstInteraction, true);
@@ -165,17 +168,15 @@ export default function Header() {
 
   return (
     <>
-      <motion.div
-        className={`lg:hidden fixed top-0 left-0 right-0 z-[100] bg-gray-800 shadow-lg ${
-          showFixedHeader ? 'block' : 'hidden'
-        }`}
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ 
-          opacity: showFixedHeader ? 1 : 0, 
-          y: showFixedHeader ? 0 : -50 
-        }}
-        transition={{ duration: 0.3 }}
-      >
+      <AnimatePresence>
+        {showFixedHeader && (
+          <motion.div
+            className="lg:hidden fixed top-0 left-0 right-0 z-[100] bg-gray-800 shadow-lg"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.3 }}
+          >
         <div className="flex items-center justify-between px-2 py-2">
           <motion.button
             onClick={toggleMenu}
@@ -197,14 +198,14 @@ export default function Header() {
           
           <div className="flex-1"></div>
           
-          {/* Espaçador para equilibrar o layout */}
           <div className="w-10"></div>
         </div>
-      </motion.div>
+        </motion.div>
+        )}
+      </AnimatePresence>
 
-      <div className="relative w-full h-[95vh] lg:h-[100vh] overflow-hidden" data-header-section>
+      <div className="relative w-full h-[95vh] lg:h-[100vh] overflow-hidden" data-header-section ref={headerSectionRef}>
       <div className="absolute inset-0 z-0">
-        {/* Fallback animado caso autoplay seja bloqueado (use um .webp/.gif animado) */}
         {showVideoFallback && (
           <img
             src="/videolhc_fallback.webp"
@@ -254,7 +255,6 @@ export default function Header() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        {/* Desktop Navigation - mantém layout original */}
         <motion.nav 
           className="hidden lg:flex space-x-4 mr-2"
           initial={{ opacity: 0, x: -50 }}
@@ -349,7 +349,6 @@ export default function Header() {
           </motion.a>
         </motion.nav>
 
-        {/* Mobile Menu Button */}
         <motion.button
           className="lg:hidden absolute top-8 left-4 text-white hover:text-gold-400 transition-colors duration-300 p-2 z-[100]"
           onClick={toggleMenu}
@@ -369,7 +368,6 @@ export default function Header() {
         </motion.button>
       </motion.header>
 
-      {/* Mobile Menu - Dropdown */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -379,7 +377,6 @@ export default function Header() {
             exit={{ opacity: 0, y: -100 }}
             transition={{ type: "spring", stiffness: 300, damping: 30 }}
           >
-            {/* Header do menu com botão de fechar */}
             <div className="flex items-center justify-between px-4 py-4 bg-gray-800">
               <span className="text-white font-bold text-lg">Menu</span>
               <motion.button
@@ -394,7 +391,6 @@ export default function Header() {
               </motion.button>
             </div>
             
-            {/* Menu items */}
             <div className="bg-white">
               <nav className="flex flex-col">
                 <motion.a 
@@ -502,12 +498,11 @@ export default function Header() {
       >
 
         <motion.div
-          className="mt-60 lg:mt-60"
+          className="mt-80 lg:mt-60"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
         >
-          {/* Selo 10 anos acima do botão, apenas no mobile */}
           <div className="lg:hidden flex justify-center">
             <Image
               src="/selo10anos.png"
