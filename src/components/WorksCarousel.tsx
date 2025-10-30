@@ -9,63 +9,72 @@ const works = [
   {
     id: 'ford',
     slug: '1-ford',
-    title: 'Ford',
+    title: 'Demolição Predial',
     description: 'Demolição e terraplenagem completa do projeto Ford',
-    thumbnail: '/obras/1 - Ford/inicio1.jpg',
-    totalImages: 13,
+    thumbnail: '/obras/1 - Demolição Predial/01 - Imagem Início .jpg',
+    totalImages: 6,
     category: 'Demolição e Terraplenagem'
   },
   {
     id: 'unimed',
     slug: '2-unimed',
-    title: 'Unimed',
+    title: 'UNIMED',
     description: 'Projeto de escavação e preparação de terreno para Unimed',
-    thumbnail: '/obras/2 - Unimed/01.jpg',
-    totalImages: 6,
+    thumbnail: '/obras/2 - UNIMED/01 Foto de Inicio .jpg',
+    totalImages: 7,
     category: 'Escavação'
   },
   {
     id: 'ciee',
     slug: '3-ciee',
-    title: 'CIEE',
+    title: 'Demolição Cieee',
     description: 'Demolição controlada e remoção de estruturas do projeto CIEE',
-    thumbnail: '/obras/3 - CIEE/01.jpg',
+    thumbnail: '/obras/3 - Demolição Cieee/01 Foto de Inicio .jpg',
     totalImages: 5,
     category: 'Demolição'
   },
   {
     id: 'marcelo-gama',
     slug: '4-marcelo-gama',
-    title: 'Marcelo Gama',
+    title: 'Escavação Marcelo Gama',
     description: 'Terraplenagem e preparação de terreno para construção',
-    thumbnail: '/obras/4 - Marcelo Gama/01.jpg',
-    totalImages: 12,
+    thumbnail: '/obras/4 - Escavação Marcelo Gama/01 Foto de Inicio .jpg',
+    totalImages: 6,
     category: 'Terraplenagem'
   },
   {
     id: 'arambare',
     slug: '5-arambare',
-    title: 'Arambaré',
+    title: 'Demolição caixa d’água Arambare',
     description: 'Projeto de escavação e movimentação de terra em Arambaré',
-    thumbnail: '/obras/5 - Arambare/01.jpg',
-    totalImages: 9,
+    thumbnail: '/obras/5 - Demolição caixa d’água Arambare/01 Foto de Inicio .jpg',
+    totalImages: 6,
     category: 'Escavação'
   },
   {
     id: 'machopo',
     slug: '6-machopo',
-    title: 'Machopo',
+    title: 'Demolição Chaminés Mapocho',
     description: 'Demolição e preparação de área para novo empreendimento',
-    thumbnail: '/obras/6 - Machopo/01.jpg',
-    totalImages: 5,
+    thumbnail: '/obras/6 - Demolição Chaminés Mapocho/01 Foto de Inicio .jpg',
+    totalImages: 6,
     category: 'Demolição'
   },
   {
     id: 'estrutura',
     slug: '7-estrutura',
-    title: 'Estrutura',
+    title: 'Desmontagem de Estrutura Metálica',
     description: 'Demolição de estruturas complexas com segurança',
-    thumbnail: '/obras/7 - Estrutura/01.jpg',
+    thumbnail: '/obras/7 - Desmontagem de Estrutura Metálica/01 Foto de Inicio .jpg',
+    totalImages: 6,
+    category: 'Demolição'
+  },
+  {
+    id: 'parker',
+    slug: '8-parker',
+    title: 'Demolição Parker',
+    description: 'Demolição executada com segurança e eficiência',
+    thumbnail: '/obras/08 - Demolição Parker/01 foto .jpg',
     totalImages: 4,
     category: 'Demolição'
   }
