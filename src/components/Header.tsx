@@ -58,16 +58,16 @@ export default function Header() {
     const onCanPlay = () => tryPlay();
     const onLoadedData = () => tryPlay();
     const onLoadedMetadata = () => {
-      try {
-        videoElement.load();
-      } catch {}
       tryPlay();
     };
+    const onCanPlayThrough = () => tryPlay();
 
     videoElement.addEventListener('canplay', onCanPlay);
     videoElement.addEventListener('loadeddata', onLoadedData);
     videoElement.addEventListener('loadedmetadata', onLoadedMetadata);
+    videoElement.addEventListener('canplaythrough', onCanPlayThrough);
 
+    const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
@@ -75,7 +75,9 @@ export default function Header() {
         if (entry.isIntersecting && entry.intersectionRatio > 0.25) {
           tryPlay();
         } else {
-          videoElement.pause();
+          if (!isMobile) {
+            videoElement.pause();
+          }
         }
       },
       { threshold: [0, 0.01, 0.25, 0.5, 1] }
@@ -108,6 +110,7 @@ export default function Header() {
       videoElement.removeEventListener('canplay', onCanPlay);
       videoElement.removeEventListener('loadeddata', onLoadedData);
       videoElement.removeEventListener('loadedmetadata', onLoadedMetadata);
+      videoElement.removeEventListener('canplaythrough', onCanPlayThrough);
       observer.disconnect();
       window.removeEventListener('touchstart', handleFirstInteraction);
       window.removeEventListener('pointerdown', handleFirstInteraction);
@@ -174,9 +177,10 @@ export default function Header() {
           controls={false}
           controlsList="nodownload noplaybackrate noremoteplayback nofullscreen"
           aria-hidden="true"
+          x-webkit-airplay="allow"
         >
-          <source src="/videolhc.webm" type="video/webm" />
           <source src="/videolhc.mp4" type="video/mp4" />
+          <source src="/videolhc.webm" type="video/webm" />
         </video>
         <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       </div>
