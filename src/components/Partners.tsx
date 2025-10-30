@@ -23,7 +23,6 @@ const partners = [
 ];
 
 export default function Partners() {
-  // Duplicamos os logos para criar o efeito infinito
   const duplicatedPartners = [...partners, ...partners, ...partners];
 
   return (
@@ -51,13 +50,13 @@ export default function Partners() {
             <motion.div
               className="flex gap-12 items-center"
               animate={{
-                x: [0, -1920], // Ajuste esse valor baseado na largura total dos logos
+                x: [0, -1920],
               }}
               transition={{
                 x: {
                   repeat: Infinity,
                   repeatType: "loop",
-                  duration: 40, // Duração para completar um ciclo
+                  duration: 40,
                   ease: "linear",
                 },
               }}

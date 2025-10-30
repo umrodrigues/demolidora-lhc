@@ -10,7 +10,6 @@ interface EmailData {
 
 export async function sendEmail(data: EmailData) {
   try {
-    // Configuração do transporter
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -19,10 +18,9 @@ export async function sendEmail(data: EmailData) {
       },
     });
 
-    // Configuração do email
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: process.env.EMAIL_USER, // Enviando para o próprio email
+      to: process.env.EMAIL_USER,
       subject: `Nova mensagem de contato - ${data.name}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -62,7 +60,6 @@ export async function sendEmail(data: EmailData) {
       `,
     };
 
-    // Envio do email
     const result = await transporter.sendMail(mailOptions);
     console.log('Email enviado com sucesso:', result.messageId);
     return { success: true, messageId: result.messageId };
