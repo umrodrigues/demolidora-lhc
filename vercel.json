@@ -1,11 +1,7 @@
 {
   "buildCommand": "pnpm run build",
   "installCommand": "git lfs install && pnpm install --no-frozen-lockfile",
-  "functions": {
-    "src/app/**/*.tsx": {
-      "maxDuration": 30
-    }
-  },
+  
   "build": {
     "env": {
       "NODE_VERSION": "18"
@@ -23,15 +19,15 @@
     { "source": "/quem-somos.html", "destination": "/quem-somos", "permanent": true },
     { "source": "/obras.html", "destination": "/obras-realizadas", "permanent": true },
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [{ "type": "host", "value": "demolidoralhc.vercel.app" }],
-      "destination": "https://www.demolidoralhc.com.br/:1",
+      "destination": "https://www.demolidoralhc.com.br/:path",
       "permanent": true
     },
     {
-      "source": "/(.*)",
+      "source": "/:path*",
       "has": [{ "type": "host", "value": "demolidoralhc.com.br" }],
-      "destination": "https://www.demolidoralhc.com.br/:1",
+      "destination": "https://www.demolidoralhc.com.br/:path",
       "permanent": true
     }
   ],
