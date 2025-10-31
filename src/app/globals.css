@@ -11,12 +11,10 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   overflow-x: hidden;
-  height: 100%;
 }
 
 html {
   scroll-behavior: smooth;
-  height: 100%;
 }
 
 /* Classes globais para estilos repetidos */
