@@ -54,7 +54,7 @@ export async function sendEmail(data: EmailData) {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'demolidoralhc@gmail.com',
+      to: ['demolidoralhc@gmail.com', 'comercial.lhc01@gmail.com'],
       subject: `Nova mensagem de contato - ${data.name}`,
       html: `
         <!DOCTYPE html>
