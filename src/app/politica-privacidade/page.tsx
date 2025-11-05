@@ -94,7 +94,7 @@ export default function PoliticaPrivacidadePage() {
               Para questões sobre esta política de privacidade, entre em contato conosco:
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <p className="text-gray-600 mb-2"><strong>E-mail:</strong> luarodrigues1996@gmail.com</p>
+              <p className="text-gray-600 mb-2"><strong>E-mail:</strong> demolidoralhc@gmail.com</p>
               <p className="text-gray-600 mb-2"><strong>Telefone:</strong> (51) 9984-8887</p>
               <p className="text-gray-600"><strong>Endereço:</strong> Porto Alegre, RS</p>
             </div>

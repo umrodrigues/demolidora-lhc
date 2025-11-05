@@ -63,10 +63,10 @@ export default function ContactInfo() {
                   <div>
                     <h4 className="font-semibold text-gray-700">Email</h4>
                     <a 
-                      href="mailto:luarodrigues1996@gmail.com"
+                      href="mailto:demolidoralhc@gmail.com"
                       className="text-gold-600 hover:text-gold-700 transition-colors duration-300"
                     >
-                      luarodrigues1996@gmail.com
+                      demolidoralhc@gmail.com
                     </a>
                   </div>
                 </div>
